@@ -8,7 +8,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     'İvedik OSB’de 15.243 m² arazi üzerinde 50.710 m² inşaat alanına sahip otel ve iş merkezi; Has Metal’in kendi yaptığı yapı.',
   path: '/hm-commerce-center',
-  altPath: '/en/hm-commerce-center',
   image: '/images/hm-commerce-hotel.webp',
 })
 

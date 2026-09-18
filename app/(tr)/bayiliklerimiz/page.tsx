@@ -8,7 +8,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Has Metal; GU-Gretsch Unitas, SIEGENIA, GIESSE, DORMA ve KALE markalarının kapı-pencere donanımı ve mekanizma bayiliğini yürütür.',
   path: '/bayiliklerimiz',
-  altPath: '/en/partners',
 })
 
 export default function Page() {

@@ -8,27 +8,12 @@ import { LineRise } from '@/components/motion/line-rise'
 import { Reveal } from '@/components/motion/reveal'
 import { Counter } from '@/components/motion/counter'
 import { cities, projects } from '@/content'
-import { routes, t, type Locale } from '@/content/i18n'
+import { copy, routes, t, type Locale } from '@/content/i18n'
 import { homeFor, partnersFor, systemsFor } from '@/content/locale'
-
-const COPY = {
-  tr: {
-    timelineTitle: 'Bir atölyeden dört tesise.',
-    heroAlt: 'Şişli Belediyesi hizmet binası, alüminyum cephe ve güneş kırıcı uygulaması',
-    heroCaption: 'Şişli Belediyesi, İstanbul',
-    commerceAlt: 'HM Commerce Center otel ve iş merkezi, İvedik OSB Ankara',
-  },
-  en: {
-    timelineTitle: 'From one workshop to four facilities.',
-    heroAlt: 'Şişli Municipality building, aluminium facade and brise soleil',
-    heroCaption: 'Şişli Municipality, İstanbul',
-    commerceAlt: 'HM Commerce Center hotel and business centre, İvedik OSB Ankara',
-  },
-}
 
 export function HomePage({ locale }: { locale: Locale }) {
   const d = t(locale)
-  const copy = COPY[locale]
+  const c = copy(locale).home
   const home = homeFor(locale)
   const systems = systemsFor(locale)
   const partners = partnersFor(locale)
@@ -41,8 +26,8 @@ export function HomePage({ locale }: { locale: Locale }) {
         title={home.hero.title}
         subtitle={home.hero.subtitle}
         image="3cbe1b6ce556b8f702091fca7c39074e-1"
-        imageAlt={copy.heroAlt}
-        imageCaption={copy.heroCaption}
+        imageAlt={c.heroAlt}
+        imageCaption={c.heroCaption}
       />
 
       {/* manifesto */}
@@ -62,7 +47,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       <Timeline
         locale={locale}
         kicker={d.sections.history}
-        title={copy.timelineTitle}
+        title={c.timelineTitle}
         steps={home.timeline}
       />
 
@@ -139,7 +124,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <Img
                 src="hm-commerce-hotel"
-                alt={copy.commerceAlt}
+                alt={c.commerceAlt}
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 className="object-cover"
               />

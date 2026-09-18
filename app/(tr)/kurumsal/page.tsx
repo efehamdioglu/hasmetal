@@ -8,7 +8,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     '1974’te Halis Bekar kurdu. Demir doğramadan mimari alüminyuma uzanan 51 yıl, Ankara’da iki tesis ve yedi şehre yayılan bir referans listesi.',
   path: '/kurumsal',
-  altPath: '/en/about',
 })
 
 export default function Page() {

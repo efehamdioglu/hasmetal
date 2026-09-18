@@ -8,7 +8,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Mimari alüminyum sistem, profil ve donanım ihtiyacınız için teklif alın. Ölçü, sistem tercihi ve takvim belli olduğunda net bir çalışma hazırlıyoruz.',
   path: '/teklif',
-  altPath: '/en/quote',
 })
 
 export default function Page() {

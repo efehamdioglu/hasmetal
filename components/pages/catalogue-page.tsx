@@ -6,23 +6,18 @@ import { Reveal } from '@/components/motion/reveal'
 import { LineRise } from '@/components/motion/line-rise'
 import { JsonLd } from '@/components/ui/json-ld'
 import { CatalogueViewer } from '@/components/scenes/catalogue-viewer'
-import { catalogue, catalogues, pageImage } from '@/content/catalogues'
-import { routes, t, type Locale } from '@/content/i18n'
+import { catalogueFor, cataloguesFor, pageImage } from '@/content/catalogues'
+import { copy as copy_, routes, t, type Locale } from '@/content/i18n'
 import { breadcrumbSchema } from '@/lib/schema'
 import { abs } from '@/lib/seo'
 
-const COPY = {
-  tr: { title: 'Kataloglar', others: 'Diğer kataloglar' },
-  en: { title: 'Catalogues', others: 'Other catalogues' },
-}
-
 export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }) {
   const d = t(locale)
-  const copy = COPY[locale]
-  const item = catalogue(slug)
+  const copy = copy_(locale).catalogues
+  const item = catalogueFor(locale, slug)
   if (!item) notFound()
 
-  const others = catalogues.filter((c) => c.slug !== item.slug).slice(0, 4)
+  const others = cataloguesFor(locale).filter((c) => c.slug !== item.slug).slice(0, 4)
 
   return (
     <>
@@ -31,13 +26,13 @@ export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }
           breadcrumbSchema([
             { name: d.common.homeCrumb, path: routes.home(locale) },
             { name: copy.title, path: routes.catalogues(locale) },
-            { name: item.title[locale], path: routes.catalogue(locale, item.slug) },
+            { name: item.title, path: routes.catalogue(locale, item.slug) },
           ]),
           {
             '@context': 'https://schema.org',
             '@type': 'Book',
-            name: item.title[locale],
-            description: item.summary[locale],
+            name: item.title,
+            description: item.summary,
             numberOfPages: item.pages,
             inLanguage: item.language.toLowerCase(),
             bookFormat: 'https://schema.org/EBook',
@@ -55,7 +50,7 @@ export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }
             items={[
               { label: d.common.homeCrumb, href: routes.home(locale) },
               { label: copy.title, href: routes.catalogues(locale) },
-              { label: item.title[locale] },
+              { label: item.title },
             ]}
           />
         </Reveal>
@@ -66,7 +61,7 @@ export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }
               as="h1"
               immediate
               delay={0.1}
-              lines={[item.title[locale]]}
+              lines={[item.title]}
               className="display max-w-[20ch] text-[clamp(2rem,5vw,3.75rem)] text-ink"
             />
             <Reveal immediate i={1}>
@@ -91,7 +86,7 @@ export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }
           </div>
 
           <Reveal immediate i={2}>
-            <p className="max-w-md text-base leading-relaxed text-ink-2">{item.summary[locale]}</p>
+            <p className="max-w-md text-base leading-relaxed text-ink-2">{item.summary}</p>
           </Reveal>
         </div>
       </header>
@@ -114,7 +109,7 @@ export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={pageImage(o.slug, 1)}
-                      alt={o.title[locale]}
+                      alt={o.title}
                       width={w}
                       height={h}
                       loading="lazy"
@@ -123,7 +118,7 @@ export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }
                   </div>
                   <p className="label mt-3">{d.catalogue.pageCount(o.pages)}</p>
                   <h3 className="display mt-1 text-lg text-ink transition-colors group-hover:text-carmine">
-                    {o.title[locale]}
+                    {o.title}
                   </h3>
                 </Link>
               </Reveal>

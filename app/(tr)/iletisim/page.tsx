@@ -8,7 +8,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Has Metal’e ulaşın: Siteler merkez, İvedik OSB lojistik ve proje birimi, HM Commerce Center. Adres, telefon ve proje teklif formu.',
   path: '/iletisim',
-  altPath: '/en/contact',
 })
 
 export default function Page() {

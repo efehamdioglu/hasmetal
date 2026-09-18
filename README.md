@@ -1,8 +1,8 @@
 # Has Metal Alüminyum, yeni web sitesi
 
-hasmetal.com.tr'nin baştan tasarlanmış hâli, Türkçe ve İngilizce. İçerik mevcut
-siteden taşındı ve eski URL'lerin tamamı korundu; tasarım, hareket dili, içerik
-katmanı ve SEO altyapısı sıfırdan kuruldu.
+hasmetal.com.tr'nin baştan tasarlanmış hâli, sekiz dilde. İçerik mevcut siteden
+taşındı ve eski URL'lerin tamamı korundu; tasarım, hareket dili, içerik katmanı
+ve SEO altyapısı sıfırdan kuruldu.
 
 **Stack:** Next.js 16 (App Router, SSG) · React 19 · TypeScript · Tailwind v4 ·
 motion · GSAP + ScrollTrigger · Lenis
@@ -18,14 +18,14 @@ npm run build && npm start -- -p 3001
 | Komut | Ne yapar |
 |---|---|
 | `npm run dev` | Geliştirme sunucusu (Turbopack) |
-| `npm run build` | 136 sayfayı statik üretir (TR + EN) |
+| `npm run build` | 598 sayfayı statik üretir (sekiz dil) |
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run lint` | ESLint, React Compiler kuralları dahil |
-| `npm run qa` | Playwright ile 31 davranış ve erişilebilirlik kontrolü |
-| `npm run check:emdash` | 131 sayfanın hiçbirinde em dash kalmadığını doğrular |
+| `npm run qa` | Playwright ile 54 davranış, erişilebilirlik ve i18n kontrolü |
+| `npm run check:emdash` | 593 sayfanın hiçbirinde em dash kalmadığını doğrular |
 | `npm run perf` | Bundle boyutu + LCP/CLS ölçümü |
 | `npm run shots` | Ekran görüntüleri, `scripts/_shots/` |
-| `npm run verify:urls` | Eski sitenin 28 URL'si ve yeni adresler çözülüyor mu |
+| `npm run verify:urls` | Eski 28 URL ve 121 yeni adres çözülüyor mu |
 | `npm run content:refresh` | İçeriği canlı siteden yeniden çeker, `content/data.json` üretir |
 | `node scripts/brand-logos.mjs` | Bayilik logolarını beyazdan mürekkep rengine çevirir |
 | `node scripts/catalogues.mjs` | Katalog PDF'lerini indirir, her sayfayı webp'ye çevirir |
@@ -33,53 +33,64 @@ npm run build && npm start -- -p 3001
 Son beş komut çalışan bir sunucu bekler; hepsi varsayılan olarak
 `http://localhost:3001` adresine bakar, `BASE` ortam değişkeniyle değiştirilebilir.
 
-## İki dil
+## Sekiz dil
 
-Türkçe kökte durur, böylece eski URL'lerin hiçbiri değişmez. İngilizce `/en`
-altında kendi yol adlarıyla yaşar:
+Eski sitede sekiz dil vardı ama hepsi gtranslate eklentisiyle, yani makine
+çevirisi: kendi URL'leri yoktu, indekslenmiyorlardı ve kalitesi düşüktü. Yeni
+sitede sekizi de gerçek çeviri, kendi adresi, kendi `hreflang` eşlemesi ve
+statik olarak üretilmiş sayfalarıyla var.
 
-| Türkçe | İngilizce |
-|---|---|
-| `/` | `/en` |
-| `/kurumsal` | `/en/about` |
-| `/sistemler/hm-55-t` | `/en/systems/hm-55-t` |
-| `/urunler/fitil-ve-conta` | `/en/products/gaskets-and-seals` |
-| `/hizmetler/insaat-ve-taahhut` | `/en/services/construction-and-contracting` |
-| `/referanslar/regnum-sky-tower` | `/en/projects/regnum-sky-tower` |
-| `/bayiliklerimiz` | `/en/partners` |
-| `/iletisim` | `/en/contact` |
-| `/teklif` | `/en/quote` |
+| Dil | Kök | Örnek |
+|---|---|---|
+| Türkçe | `/` | `/sistemler/hm-55-t` |
+| English | `/en` | `/en/systems/hm-55-t` |
+| Deutsch | `/de` | `/de/products/gaskets-and-seals` |
+| Français | `/fr` | `/fr/projects/regnum-sky-tower` |
+| Italiano | `/it` | `/it/catalogues/siegenia` |
+| Español | `/es` | `/es/about` |
+| Русский | `/ru` | `/ru/contact` |
+| 简体中文 | `/zh` | `/zh/quote` |
 
-İki dilin de kendi kök layout'u var, bu yüzden `<html lang>` her zaman doğru.
-`content/i18n.ts` slug eşlemelerini, rota kurucularını, arayüz sözlüğünü ve
-`counterpartPath` ile dil değiştirme bağlantısının doğru karşılığa gitmesini tutar.
-Sayfa gövdeleri `components/pages/` altında tek yerde durur; rota dosyaları
-yalnızca `locale` geçen ince sarmalayıcılardır.
+Türkçe kökte durur ve Türkçe yol adlarını kullanır, böylece eski sitenin
+yayınladığı hiçbir URL değişmez. Diğer yedi dil kendi önekiyle yaşar ve aynı
+yol adlarını paylaşır; rota ağacını yedi kez kopyalamak yerine tek bir
+`app/(intl)/[locale]` ağacından servis edilmelerinin sebebi budur.
 
-Çeviri elle yapıldı. Eski sitedeki gtranslate eklentisi makine çevirisiydi ve
-indekslenmiyordu; bu kurgu `hreflang` ile eşlenmiş, indekslenen gerçek bir
-İngilizce sürüm üretir.
+Her dil kendi kök layout'unu alır, dolayısıyla `<html lang>` her zaman doğru
+(Çince için `zh-Hans`). Her sayfa dokuz `alternate` taşır: sekiz dil artı
+Türkçeye işaret eden `x-default`. Dil menüsü bulunduğunuz sayfanın karşılığına
+gider, çevrilmiş slug'lar dahil.
+
+### Metinler nerede durur
+
+`content/lang/<dil>.ts` her dil için tek dosyadır: arayüz sözcükleri, sayfa
+metinleri, meta başlık ve açıklamalar, ve içerik kaplaması. Türkçe kaynaktır,
+diğer yedisi aynı şeyi başka kelimelerle söyler.
+
+Bu dosyalarda **hiçbir olgu yoktur**. Rakam, telefon, adres, slug ve görsel
+anahtarı yalnızca `content/site.ts` içinde durur; diller bir olgu üzerinde
+ayrışamaz, çünkü o olgunun tek bir kopyası vardır.
 
 ## Mimari
 
 ```
 app/
   (tr)/                  Türkçe kök layout ve 16 rota
-  (en)/en/               İngilizce kök layout ve 15 rota
+  (intl)/[locale]/       diğer yedi dilin ortak kök layout ve rotaları
   actions.ts             teklif ve iletişim formu (Server Action)
-  sitemap.ts robots.ts   iki dili birden listeler
+  sitemap.ts robots.ts   sekiz dili birden listeler
 components/
-  pages/                 sayfa gövdeleri, iki dil için tek kaynak
+  pages/                 sayfa gövdeleri, sekiz dil için tek kaynak
   scenes/                hero, zaman çizelgesi, referans indeksi
   motion/                Reveal, LineRise, Counter, Marquee, Lenis
   shell/                 nav, footer, kök kabuk
   ui/                    Img, PageHero, CtaBand, form, JSON-LD
 content/
   data.json              üretilmiş: 46 proje, görsel kayıtları, kurumsal metin
-  site.ts                elle yazılan Türkçe katman
-  en/site.ts             İngilizce kaplama, yalnızca kelimeler
-  locale.ts              ikisini birleştiren erişimciler
-  i18n.ts                rotalar, slug eşlemeleri, arayüz sözlüğü
+  site.ts                olgular: rakam, telefon, adres, slug
+  lang/<dil>.ts          sekiz dilin tüm metinleri
+  locale.ts              olguları ve kelimeleri birleştiren erişimciler
+  i18n.ts                rotalar, slug eşlemeleri, dil erişimcileri
   redirects.ts           eski 28 URL'nin haritası
 lib/
   seo.ts schema.ts       metadata üreticisi ve JSON-LD kurucuları
@@ -89,10 +100,9 @@ scripts/                 içerik zinciri ve doğrulama araçları
 
 ### İçerik katmanı
 
-Türkçe kaynak, İngilizce kaplama. `content/locale.ts` içindeki erişimciler
-(`systemsFor`, `homeFor`, `locationsFor` ve diğerleri) Türkçe kaydı alır ve
-yalnızca kelimeleri değiştirir. Rakam, telefon, adres ve slug tek kopya hâlinde
-durur; iki dil bir olgu üzerinde ayrışamaz.
+`content/locale.ts` içindeki erişimciler (`systemsFor`, `homeFor`,
+`locationsFor` ve diğerleri) olgu kaydını alır ve o dilin kelimelerini üzerine
+koyar. Sekiz dilin hepsi aynı olgu kümesini paylaşır.
 
 `content/data.json` üretilmiş dosyadır, elle düzenlenmez. Kaynağı eski sitenin
 kendi markup'ıdır: referans ızgarasındaki 46 proje, kartların ilan ettiği gerçek
@@ -108,7 +118,8 @@ Eski sitede olmayan, şimdi olan şeyler:
   HM Commerce Center; her biri kendi telefonuyla), `BreadcrumbList`,
   sistem sayfalarında `Product`, her referans projesi için `CreativeWork`,
   listelerde `ItemList`
-- `sitemap.xml` ve `robots.txt`, TR/EN çiftleri `hreflang` ve `x-default` ile
+- `sitemap.xml` 592 URL listeler, her sayfa sekiz dilde; `hreflang` ve
+  `x-default` eşlemeleri her sayfada
 - Eski 28 URL'nin tamamı 301 ile karşılanıyor; beş çift kopya sayfa tek kanonik
   adrese toplandı: `mimari-sistem-serileri-2` ve `mimari-sistem-serileri`,
   `hm-commerce-center-2` ve `hm-commerce-center`, `conta-fitil-grubu` ve
@@ -239,7 +250,11 @@ Bunlar bizim değil, müşterinin elinde:
    footer keskinleşir. Bayilik markalarının logoları da eski siteden alınan
    düşük çözünürlüklü dosyalar: markaların kendi basın kitlerinden SVG almak
    hem daha keskin hem de marka kullanımı açısından daha doğru olur.
-6. **Google Business Profile.** Üç tesis için üç ayrı `LocalBusiness` kaydı
+6. **Çeviri düzeltmesi.** Almanca, Fransızca, İtalyanca, İspanyolca, Rusça ve
+   Çince metinleri ben yazdım ve şirkette kimse kontrol edemeyecek. Pazarlama
+   dili için sorun değil ama en azından Almanca ve Rusça için bir anadil
+   düzeltmeni tavsiye ederim; teknik bir terim yanlış oturursa fark edilmesi zor.
+7. **Google Business Profile.** Üç tesis için üç ayrı `LocalBusiness` kaydı
    hazır; profillerin doğrulanması yerel aramada karşılığını doğrudan verir.
 
 ## Deploy

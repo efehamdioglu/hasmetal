@@ -3,28 +3,13 @@ import { PageHero } from '@/components/ui/page-hero'
 import { CtaBand } from '@/components/ui/cta-band'
 import { Reveal } from '@/components/motion/reveal'
 import { JsonLd } from '@/components/ui/json-ld'
-import { catalogues, pageImage } from '@/content/catalogues'
-import { routes, t, type Locale } from '@/content/i18n'
+import { cataloguesFor, pageImage } from '@/content/catalogues'
+import { copy as copy_, routes, t, type Locale } from '@/content/i18n'
 import { breadcrumbSchema, itemListSchema } from '@/lib/schema'
-
-const COPY = {
-  tr: {
-    title: 'Kataloglar',
-    lead: 'Kendi sistem serilerimizin teknik dokümanları ve temsil ettiğimiz donanım markalarının katalogları. Sayfa sayfa çevirebilir, tek sayfayı büyütebilir, kendi kataloglarımızı PDF olarak indirebilirsiniz.',
-    ours: 'Has Metal yayınları',
-    brands: 'Marka katalogları',
-  },
-  en: {
-    title: 'Catalogues',
-    lead: 'Technical documentation for our own system series, and the catalogues of the hardware brands we represent. Turn the pages, enlarge any single page, and download our own documents as PDF.',
-    ours: 'Has Metal publications',
-    brands: 'Brand catalogues',
-  },
-}
 
 function Card({ slug, locale, i }: { slug: string; locale: Locale; i: number }) {
   const d = t(locale)
-  const item = catalogues.find((c) => c.slug === slug)!
+  const item = cataloguesFor(locale).find((c) => c.slug === slug)!
   const [w, h] = item.size[0] ?? [1200, 1600]
 
   return (
@@ -34,7 +19,7 @@ function Card({ slug, locale, i }: { slug: string; locale: Locale; i: number }) 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={pageImage(item.slug, 1)}
-            alt={item.title[locale]}
+            alt={item.title}
             width={w}
             height={h}
             loading={i < 4 ? 'eager' : 'lazy'}
@@ -52,8 +37,8 @@ function Card({ slug, locale, i }: { slug: string; locale: Locale; i: number }) 
             </>
           )}
         </p>
-        <h3 className="display mt-2 text-xl text-ink sm:text-2xl">{item.title[locale]}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-ink-2">{item.summary[locale]}</p>
+        <h3 className="display mt-2 text-xl text-ink sm:text-2xl">{item.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink-2">{item.summary}</p>
       </Link>
     </Reveal>
   )
@@ -61,10 +46,11 @@ function Card({ slug, locale, i }: { slug: string; locale: Locale; i: number }) 
 
 export function CataloguesPage({ locale }: { locale: Locale }) {
   const d = t(locale)
-  const copy = COPY[locale]
+  const copy = copy_(locale).catalogues
 
-  const ours = catalogues.filter((c) => c.owner === 'has-metal')
-  const brands = catalogues.filter((c) => c.owner === 'brand')
+  const all = cataloguesFor(locale)
+  const ours = all.filter((c) => c.owner === 'has-metal')
+  const brands = all.filter((c) => c.owner === 'brand')
 
   return (
     <>
@@ -75,8 +61,8 @@ export function CataloguesPage({ locale }: { locale: Locale }) {
             { name: copy.title, path: routes.catalogues(locale) },
           ]),
           itemListSchema(
-            catalogues.map((c) => ({
-              name: c.title[locale],
+            all.map((c) => ({
+              name: c.title,
               path: routes.catalogue(locale, c.slug),
             })),
           ),
@@ -86,7 +72,7 @@ export function CataloguesPage({ locale }: { locale: Locale }) {
       <PageHero
         crumbs={[{ label: d.common.homeCrumb, href: routes.home(locale) }, { label: copy.title }]}
         title={copy.title}
-        meta={d.catalogue.pageCount(catalogues.reduce((n, c) => n + c.pages, 0))}
+        meta={d.catalogue.pageCount(all.reduce((n, c) => n + c.pages, 0))}
         lead={copy.lead}
       />
 

@@ -8,32 +8,15 @@ import { BrandWall } from '@/components/scenes/brand-wall'
 import { LineRise } from '@/components/motion/line-rise'
 import { Reveal } from '@/components/motion/reveal'
 import { Counter } from '@/components/motion/counter'
-import { routes, t, type Locale } from '@/content/i18n'
+import { copy as copy_, routes, t, type Locale } from '@/content/i18n'
 import { aboutFor, homeFor, locationsFor, partnersFor } from '@/content/locale'
 import { brand, contact } from '@/content/site'
 
 /* ------------------------------------------------------------------ about */
 
-const ABOUT_COPY = {
-  tr: {
-    title: 'Kurumsal',
-    lead: '1974’te bir demir doğrama atölyesinde başlayan iş, bugün Ankara’da iki tesis, kendi sistem serileri ve yedi şehre yayılmış bir referans listesi.',
-    story: 'Hikâye',
-    timelineTitle: 'Bir atölyeden dört tesise.',
-    imageAlt: 'Has Metal Siteler tesisi',
-  },
-  en: {
-    title: 'Company',
-    lead: 'What began in an iron fabrication workshop in 1974 is today two facilities in Ankara, our own system series and a reference list spread across seven cities.',
-    story: 'The story',
-    timelineTitle: 'From one workshop to four facilities.',
-    imageAlt: 'The Has Metal facility in Siteler, Ankara',
-  },
-}
-
 export function AboutPage({ locale }: { locale: Locale }) {
   const d = t(locale)
-  const copy = ABOUT_COPY[locale]
+  const copy = copy_(locale).about
   const about = aboutFor(locale)
   const home = homeFor(locale)
 
@@ -79,20 +62,9 @@ export function AboutPage({ locale }: { locale: Locale }) {
 
 /* --------------------------------------------------------------- partners */
 
-const PARTNERS_COPY = {
-  tr: {
-    title: 'Bayiliklerimiz',
-    lead: 'Kapı ve pencerenin ömrünü belirleyen donanımı, Avrupa’nın yerleşik üreticilerinden tedarik ediyoruz. Bu markaların bayisi olmak, yedek parçanın ve teknik desteğin yıllar sonra da bulunabilmesi demek.',
-  },
-  en: {
-    title: 'Partners',
-    lead: 'The hardware that decides how long a door or window lasts comes from established European manufacturers. Being their dealer means spare parts and technical support are still there years later.',
-  },
-}
-
 export function PartnersPage({ locale }: { locale: Locale }) {
   const d = t(locale)
-  const copy = PARTNERS_COPY[locale]
+  const copy = copy_(locale).partners
   const partners = partnersFor(locale)
 
   return (
@@ -114,24 +86,9 @@ export function PartnersPage({ locale }: { locale: Locale }) {
 
 /* --------------------------------------------------------- HM Commerce */
 
-const COMMERCE_COPY = {
-  tr: {
-    title: 'HM Commerce Center',
-    lead: 'İvedik OSB’de 15.243 m² arazi üzerinde, 50.710 m² inşaat alanına sahip otel ve iş merkezi. 2013’te alınan kararla girdiğimiz inşaat hattının ilk ve en büyük işi.',
-    body: 'Alüminyumu kırk yıl boyunca başkalarının yapıları için ürettikten sonra kendi yapımızı yaptık. Cephesinden doğramasına kadar her detayı kendi sistemlerimizle çözdüğümüz bu bina, hem bir iş merkezi hem de üretim kalitemizin ölçeğe vurulmuş hâli.',
-    imageAlt: 'HM Commerce Center otel ve iş merkezi',
-  },
-  en: {
-    title: 'HM Commerce Center',
-    lead: 'A hotel and business centre on a 15,243 m² site in İvedik OSB, with 50,710 m² of construction. The first and largest job on the construction line we entered in 2013.',
-    body: 'After forty years of making aluminium for other people’s buildings, we built our own. Every detail from the facade to the framing is solved with our own systems; the building is both a business centre and the scale test of how we manufacture.',
-    imageAlt: 'HM Commerce Center hotel and business centre',
-  },
-}
-
 export function CommercePage({ locale }: { locale: Locale }) {
   const d = t(locale)
-  const copy = COMMERCE_COPY[locale]
+  const copy = copy_(locale).commerce
   const home = homeFor(locale)
 
   return (
@@ -177,26 +134,9 @@ export function CommercePage({ locale }: { locale: Locale }) {
 
 /* --------------------------------------------------------------- contact */
 
-const CONTACT_COPY = {
-  tr: {
-    title: 'İletişim',
-    lead: 'Üç tesis, tek numara yerine doğru numara. Proje teklifi, teknik doküman ve bayilik başvuruları için aşağıdaki formu kullanabilirsiniz.',
-    formTitle: 'Bize yazın',
-    address: 'Adres',
-    fax: 'Faks',
-  },
-  en: {
-    title: 'Contact',
-    lead: 'Three facilities, so the right number rather than one number. Use the form below for project enquiries, technical documentation and dealership applications.',
-    formTitle: 'Write to us',
-    address: 'Address',
-    fax: 'Fax',
-  },
-}
-
 export function ContactPage({ locale }: { locale: Locale }) {
   const d = t(locale)
-  const copy = CONTACT_COPY[locale]
+  const copy = copy_(locale).contact
   const locations = locationsFor(locale)
 
   return (
@@ -273,20 +213,9 @@ export function ContactPage({ locale }: { locale: Locale }) {
 
 /* ----------------------------------------------------------------- quote */
 
-const QUOTE_COPY = {
-  tr: {
-    title: 'Teklif alın',
-    lead: 'Projenizin ölçüleri, sistem tercihi ve teslim takvimi belli olduğunda net bir çalışma hazırlıyoruz. Elinizde proje dosyası varsa formda belirtin, dönüşte paylaşım yolunu iletelim.',
-  },
-  en: {
-    title: 'Request a quote',
-    lead: 'Once the dimensions, the chosen system and the delivery schedule are clear we prepare a firm proposal. If you already have project files, say so in the form and we will send you a way to share them.',
-  },
-}
-
 export function QuotePage({ locale }: { locale: Locale }) {
   const d = t(locale)
-  const copy = QUOTE_COPY[locale]
+  const copy = copy_(locale).quote
   const locations = locationsFor(locale)
 
   return (

@@ -8,7 +8,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     '1974’ten bu yana mimari alüminyum. Kapı ve pencere sistemleri, giydirme cephe, standart profil ve donanım tedariği. Ankara merkezli, yedi şehirde 46 referans.',
   path: '/',
-  altPath: '/en',
   image: '/images/holiday-inn-ankara-3815075007-2x1-1-scaled.webp',
 })
 

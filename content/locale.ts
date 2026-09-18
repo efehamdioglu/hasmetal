@@ -1,10 +1,10 @@
 /**
- * Turkish is the base, English is an overlay. Every accessor here takes the
- * Turkish record and replaces only the words, so a figure, a phone number or
- * a slug can never differ between the two languages: there is one copy of it.
+ * Facts live in `content/site.ts`, words live in `content/lang/<locale>.ts`.
+ * These accessors take the record of facts and swap in that language's words,
+ * so a figure, a phone number, an address or a slug exists exactly once and
+ * no two languages can disagree about one.
  */
-import type { Locale } from './i18n'
-import { about as aboutTr } from './index'
+import { lang, type Locale } from './lang/index.ts'
 import {
   brand,
   home,
@@ -12,72 +12,65 @@ import {
   partners,
   products,
   services,
-  specsPending,
   systems,
+  type Partner,
 } from './site'
-import {
-  aboutEn,
-  brandEn,
-  homeEn,
-  locationsEn,
-  partnersEn,
-  productsEn,
-  servicesEn,
-  systemsEn,
-} from './en/site'
-
-const isEn = (l: Locale) => l === 'en'
+import { about as aboutTr } from './index'
 
 export function brandFor(l: Locale) {
-  return isEn(l) ? { ...brand, tagline: brandEn.tagline } : brand
+  return { ...brand, tagline: lang(l).content.tagline }
 }
 
 export function locationsFor(l: Locale) {
-  if (!isEn(l)) return locations
-  return locations.map((loc) => ({ ...loc, ...(locationsEn[loc.id] ?? {}) }))
+  const words = lang(l).content.locations
+  return locations.map((loc) => ({ ...loc, ...(words[loc.id] ?? {}) }))
 }
 
 export function systemsFor(l: Locale) {
-  if (!isEn(l)) return systems
-  return systems.map((s) => ({ ...s, ...(systemsEn[s.slug] ?? {}) }))
+  const words = lang(l).content.systems
+  return systems.map((s) => ({ ...s, ...(words[s.slug] ?? {}) }))
 }
 
 export function productsFor(l: Locale) {
-  if (!isEn(l)) return products
-  return products.map((p) => ({ ...p, ...(productsEn[p.slug] ?? {}) }))
+  const words = lang(l).content.products
+  return products.map((p) => ({ ...p, ...(words[p.slug] ?? {}) }))
 }
 
 export function servicesFor(l: Locale) {
-  if (!isEn(l)) return services
-  return services.map((s) => ({ ...s, ...(servicesEn[s.slug] ?? {}) }))
+  const words = lang(l).content.services
+  return services.map((s) => ({ ...s, ...(words[s.slug] ?? {}) }))
 }
 
-export function partnersFor(l: Locale) {
-  if (!isEn(l)) return partners
-  return partners.map((p) => ({ ...p, note: partnersEn[p.name] ?? p.note }))
+export function partnersFor(l: Locale): Partner[] {
+  const words = lang(l).content.partners
+  return partners.map((p) => ({ ...p, note: words[p.name] ?? p.note }))
 }
 
 export function aboutFor(l: Locale) {
-  return isEn(l) ? aboutEn : aboutTr
+  return l === 'tr' ? aboutTr : lang(l).content.about
 }
 
 export function specsFor(l: Locale) {
-  return specsPending[l]
+  return lang(l).pages.docs
 }
 
 export function homeFor(l: Locale) {
-  if (!isEn(l)) return home
+  const words = lang(l).content.home
   return {
-    hero: homeEn.hero,
-    intro: homeEn.intro,
-    timeline: home.timeline.map((step, i) => ({ ...step, ...homeEn.timeline[i] })),
-    projectsIntro: homeEn.projectsIntro,
+    hero: words.hero,
+    intro: words.intro,
+    timeline: home.timeline.map((step, i) => ({ ...step, ...words.timeline[i] })),
+    projectsIntro: words.projectsIntro,
     commerce: {
-      ...homeEn.commerce,
+      ...words.commerce,
       stats: home.commerce.stats.map((stat, i) => ({
         ...stat,
-        label: homeEn.commerce.statLabels[i] ?? stat.label,
+        label: words.commerce.statLabels[i] ?? stat.label,
       })),
     },
   }
+}
+
+export function cataloguesFor(l: Locale) {
+  return lang(l).content.catalogues
 }

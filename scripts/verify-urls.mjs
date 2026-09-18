@@ -54,33 +54,35 @@ for (const url of goneUrls) {
   }
 }
 
+const localeRoots = ['/en','/de','/fr','/it','/es','/ru','/zh']
 const extra = [
   '/',
   '/sitemap.xml',
   '/robots.txt',
   '/referanslar/regnum-sky-tower',
   '/sistemler/hm-55-t',
-  '/en',
-  '/en/about',
-  '/en/systems',
-  '/en/systems/hm-55-t',
-  '/en/products',
-  '/en/products/gaskets-and-seals',
-  '/en/services',
-  '/en/services/construction-and-contracting',
-  '/en/projects',
-  '/en/projects/regnum-sky-tower',
-  '/en/partners',
-  '/en/hm-commerce-center',
-  '/en/contact',
-  '/en/quote',
   '/kataloglar',
   '/kataloglar/has-metal-mimari-sistemler',
-  '/kataloglar/siegenia',
-  '/en/catalogues',
-  '/en/catalogues/has-metal-mimari-sistemler',
   '/catalogs/has-metal-mimari-sistemler/p001.webp',
   '/catalogs/has-metal-mimari-sistemler.pdf',
+  ...localeRoots,
+  ...localeRoots.flatMap((r) => [
+    r + '/about',
+    r + '/systems',
+    r + '/systems/hm-55-t',
+    r + '/products',
+    r + '/products/gaskets-and-seals',
+    r + '/services',
+    r + '/services/construction-and-contracting',
+    r + '/projects',
+    r + '/projects/regnum-sky-tower',
+    r + '/partners',
+    r + '/catalogues',
+    r + '/catalogues/siegenia',
+    r + '/hm-commerce-center',
+    r + '/contact',
+    r + '/quote',
+  ]),
 ]
 console.log(`\nnew URLs (${extra.length}):`)
 for (const url of extra) {

@@ -6,18 +6,13 @@ import { Img } from '@/components/ui/img'
 import { Reveal } from '@/components/motion/reveal'
 import { JsonLd } from '@/components/ui/json-ld'
 import { image, project, projects } from '@/content'
-import { routes, t, type Locale } from '@/content/i18n'
+import { copy, routes, t, type Locale } from '@/content/i18n'
 import { breadcrumbSchema, projectSchema } from '@/lib/schema'
 import { pad2 } from '@/lib/utils'
 
-const COPY = {
-  tr: { projects: 'Referanslar' },
-  en: { projects: 'Projects' },
-}
-
 export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) {
   const d = t(locale)
-  const copy = COPY[locale]
+  const c = copy(locale).projects
   const p = project(slug)
   if (!p) notFound()
 
@@ -49,7 +44,7 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
         data={[
           breadcrumbSchema([
             { name: d.common.homeCrumb, path: routes.home(locale) },
-            { name: copy.projects, path: routes.projects(locale) },
+            { name: c.title, path: routes.projects(locale) },
             { name: p.name, path: routes.project(locale, p.slug) },
           ]),
           projectSchema(p, image(p.cover).src, routes.project(locale, p.slug)),
@@ -59,7 +54,7 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
       <PageHero
         crumbs={[
           { label: d.common.homeCrumb, href: routes.home(locale) },
-          { label: copy.projects, href: routes.projects(locale) },
+          { label: c.title, href: routes.projects(locale) },
           { label: p.name },
         ]}
         title={p.name}

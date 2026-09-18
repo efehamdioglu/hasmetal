@@ -1,22 +1,9 @@
-import { catalogues } from './catalogues'
-import { routes, t, type Locale } from './i18n'
+import { catalogueFacts } from './catalogues'
+import { copy, routes, t, type Locale } from './i18n'
 import { productsFor, servicesFor, systemsFor } from './locale'
 
 export type NavChild = { label: string; summary: string; href: string }
 export type NavSection = { key: string; label: string; href: string; children?: NavChild[] }
-
-const COPY = {
-  tr: {
-    commerce: 'Kendi yaptığımız otel ve iş merkezi',
-    partners: 'Temsil ettiğimiz donanım markaları',
-    catalogues: (n: number) => `${n} katalog, sayfa sayfa okunabilir`,
-  },
-  en: {
-    commerce: 'The hotel and business centre we built',
-    partners: 'The hardware brands we represent',
-    catalogues: (n: number) => `${n} catalogues you can read page by page`,
-  },
-}
 
 /**
  * Built on the server and handed to the nav as plain data, so the content
@@ -24,7 +11,7 @@ const COPY = {
  */
 export function navSections(locale: Locale): NavSection[] {
   const d = t(locale)
-  const copy = COPY[locale]
+  const c = copy(locale).navPanel
 
   return [
     {
@@ -34,12 +21,12 @@ export function navSections(locale: Locale): NavSection[] {
       children: [
         {
           label: 'HM Commerce Center',
-          summary: copy.commerce,
+          summary: c.commerce,
           href: routes.commerce(locale),
         },
         {
           label: d.nav.partners,
-          summary: copy.partners,
+          summary: c.partners,
           href: routes.partners(locale),
         },
       ],
@@ -56,7 +43,7 @@ export function navSections(locale: Locale): NavSection[] {
         })),
         {
           label: d.nav.catalogues,
-          summary: copy.catalogues(catalogues.length),
+          summary: c.catalogues(catalogueFacts.length),
           href: routes.catalogues(locale),
         },
       ],
@@ -73,7 +60,7 @@ export function navSections(locale: Locale): NavSection[] {
         })),
         {
           label: d.nav.catalogues,
-          summary: copy.catalogues(catalogues.length),
+          summary: c.catalogues(catalogueFacts.length),
           href: routes.catalogues(locale),
         },
       ],

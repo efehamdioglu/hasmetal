@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ogLocale, type Locale } from '@/content/i18n'
+import { LOCALES, ogLocale, pathFor, type Locale } from '@/content/i18n'
 import { brand } from '@/content/site'
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hasmetal.com.tr'
@@ -36,8 +36,6 @@ type Args = {
   description: string
   /** path for this locale */
   path: string
-  /** the same page in the other locale, for hreflang */
-  altPath: string
   image?: string
   type?: 'website' | 'article'
 }
@@ -47,29 +45,32 @@ export function pageMetadata({
   title,
   description,
   path,
-  altPath,
   image,
   type = 'website',
 }: Args): Metadata {
   const url = abs(path)
-  const trPath = locale === 'tr' ? path : altPath
-  const enPath = locale === 'en' ? path : altPath
 
   // the layout template appends the brand, so a title that already carries it
   // has to opt out or the name lands in the tab twice
   const titleTag = title.includes(brand.name) ? { absolute: title } : title
   const share = abs(image ?? DEFAULT_OG)
 
+  // every language gets an alternate; Turkish is x-default because that is
+  // the audience the company actually serves first
+  const languages = Object.fromEntries(
+    LOCALES.map((l) => [l, abs(pathFor(path, locale, l))]),
+  ) as Record<string, string>
+
   return {
     title: titleTag,
-    description,
+    description: clampDescription(description),
     alternates: {
       canonical: url,
-      languages: { tr: abs(trPath), en: abs(enPath), 'x-default': abs(trPath) },
+      languages: { ...languages, 'x-default': abs(pathFor(path, locale, 'tr')) },
     },
     openGraph: {
       title,
-      description,
+      description: clampDescription(description),
       url,
       type,
       siteName: brand.legalName,
@@ -79,7 +80,7 @@ export function pageMetadata({
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      description: clampDescription(description),
       images: [share],
     },
   }

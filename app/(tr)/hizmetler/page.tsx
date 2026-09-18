@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CollectionPage } from '@/components/pages/collection-page'
-import { routes } from '@/content/i18n'
-import { services } from '@/content/site'
+import { copy, routes } from '@/content/i18n'
+import { servicesFor } from '@/content/locale'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -10,16 +10,15 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Elektrostatik toz boyama ve ahşap kaplama ile alüminyum yüzey işlemi; 2013’ten bu yana inşaat ve taahhüt işleri.',
   path: '/hizmetler',
-  altPath: '/en/services',
 })
 
 export default function Page() {
   return (
     <CollectionPage
       locale="tr"
-      title="Hizmetler"
-      lead="Profili üretmekle bitmiyor: yüzeyini işliyoruz, gerektiğinde yapıyı da biz kuruyoruz."
-      entries={services}
+      title={copy('tr').services.title}
+      lead={copy('tr').services.lead}
+      entries={servicesFor('tr')}
       hrefFor={(slug) => (slug ? routes.service('tr', slug) : routes.services('tr'))}
     />
   )

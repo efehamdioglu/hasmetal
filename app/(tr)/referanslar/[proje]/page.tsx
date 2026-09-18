@@ -20,7 +20,6 @@ export async function generateMetadata({
     title: `${p.name} | Has Metal referans projesi`,
     description: clampDescription(`${p.name}, ${where} Has Metal alüminyum doğrama ve cephe sistemlerinin uygulandığı referans projelerden biri.`),
     path: routes.project('tr', p.slug),
-    altPath: routes.project('en', p.slug),
     image: image(p.cover).src,
   })
 }

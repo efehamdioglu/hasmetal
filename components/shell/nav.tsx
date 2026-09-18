@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import { Logo } from '@/components/ui/logo'
 import { lockScroll } from '@/components/motion/smooth-scroll'
-import { counterpartPath, routes, t, type Locale } from '@/content/i18n'
+import { LOCALES, LOCALE_NAMES, pathFor, routes, t, type Locale } from '@/content/i18n'
 import type { NavSection } from '@/content/nav'
 import { EASE } from '@/lib/motion'
 import { useScrolledPast } from '@/lib/use-client-env'
@@ -18,11 +18,10 @@ export function Nav({ locale, sections }: { locale: Locale; sections: NavSection
   const scrolled = useScrolledPast(16)
   const [open, setOpen] = useState(false)
   const [panel, setPanel] = useState<string | null>(null)
+  const [langOpen, setLangOpen] = useState(false)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const d = t(locale)
-  const other: Locale = locale === 'tr' ? 'en' : 'tr'
-  const switchHref = counterpartPath(pathname, locale)
   const active = sections.find((s) => s.key === panel)
 
   // a short grace period so crossing the gap into the panel does not close it
@@ -41,6 +40,7 @@ export function Nav({ locale, sections }: { locale: Locale; sections: NavSection
     setLastPath(pathname)
     setOpen(false)
     setPanel(null)
+    setLangOpen(false)
   }
 
   useEffect(() => {
@@ -49,6 +49,7 @@ export function Nav({ locale, sections }: { locale: Locale; sections: NavSection
       if (e.key !== 'Escape') return
       setOpen(false)
       setPanel(null)
+      setLangOpen(false)
     }
     window.addEventListener('keydown', onKey)
     return () => {
@@ -110,13 +111,60 @@ export function Nav({ locale, sections }: { locale: Locale; sections: NavSection
           </nav>
 
           <div className="flex items-center gap-4 lg:gap-6">
-            <p className="nav-link hidden items-center sm:flex">
-              <span className="text-ink">{locale.toUpperCase()}</span>
-              <span className="mx-1.5 text-ink-3">/</span>
-              <Link href={switchHref} hrefLang={other} className="transition-colors hover:text-ink">
-                {other.toUpperCase()}
-              </Link>
-            </p>
+            {/* eight languages, so a menu rather than a single toggle */}
+            {/* Opens on click or focus, not on hover: hovering first and then
+                clicking would toggle it straight back shut. */}
+            <div className="relative hidden sm:block" onMouseLeave={() => setLangOpen(false)}>
+              <button
+                type="button"
+                aria-expanded={langOpen}
+                aria-label={d.nav.language}
+                onClick={() => setLangOpen((v) => !v)}
+                className="nav-link flex items-center gap-1.5 py-1 text-ink"
+              >
+                {locale.toUpperCase()}
+                <span
+                  className={cn(
+                    'text-[0.6em] text-ink-3 transition-transform duration-300',
+                    langOpen && 'rotate-180',
+                  )}
+                >
+                  ▼
+                </span>
+              </button>
+
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.ul
+                    initial={reduced ? { opacity: 0 } : { opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={reduced ? { opacity: 0 } : { opacity: 0, y: -6 }}
+                    transition={{ duration: 0.25, ease: EASE }}
+                    className="absolute right-0 top-full z-20 mt-3 min-w-44 border border-[var(--rule)] bg-paper py-1 shadow-[0_20px_50px_-30px_rgba(0,0,0,0.5)]"
+                  >
+                    {LOCALES.map((l) => (
+                      <li key={l}>
+                        <Link
+                          href={pathFor(pathname, locale, l)}
+                          hrefLang={l}
+                          lang={l}
+                          aria-current={l === locale}
+                          className={cn(
+                            'nav-link flex items-center justify-between gap-6 px-4 py-2.5 transition-colors hover:bg-paper-2 hover:text-ink',
+                            l === locale && 'text-ink',
+                          )}
+                        >
+                          {LOCALE_NAMES[l]}
+                          <span className="text-[0.7em] tracking-widest text-ink-3">
+                            {l.toUpperCase()}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </div>
 
             <Link
               href={routes.quote(locale)}
@@ -243,9 +291,17 @@ export function Nav({ locale, sections }: { locale: Locale; sections: NavSection
                 <Link href={routes.quote(locale)} className="label text-carmine">
                   {d.nav.quote} →
                 </Link>
-                <Link href={switchHref} hrefLang={other} className="label hover:text-ink">
-                  {other.toUpperCase()}
-                </Link>
+                {LOCALES.filter((l) => l !== locale).map((l) => (
+                  <Link
+                    key={l}
+                    href={pathFor(pathname, locale, l)}
+                    hrefLang={l}
+                    lang={l}
+                    className="label hover:text-ink"
+                  >
+                    {LOCALE_NAMES[l]}
+                  </Link>
+                ))}
               </div>
             </div>
           </motion.div>

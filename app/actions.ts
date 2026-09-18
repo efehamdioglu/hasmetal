@@ -1,7 +1,7 @@
 'use server'
 
 import 'server-only'
-import type { Locale } from '@/content/i18n'
+import { isLocale, type Locale } from '@/content/i18n'
 
 export type FormState = {
   status: 'idle' | 'success' | 'error'
@@ -11,7 +11,7 @@ export type FormState = {
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
-const COPY = {
+const COPY: Record<Locale, Record<string, string>> = {
   tr: {
     name: 'Adınızı yazın.',
     email: 'Geçerli bir e-posta adresi girin.',
@@ -34,7 +34,72 @@ const COPY = {
       'Your message has been received. (Demo mode: it was not emailed, it was written to the server log.)',
     failed: 'We could not send that just now. Please call us or try again.',
   },
-} satisfies Record<Locale, Record<string, string>>
+  de: {
+    name: 'Bitte geben Sie Ihren Namen an.',
+    email: 'Bitte geben Sie eine gültige E-Mail-Adresse an.',
+    phone: 'Bitte geben Sie Ihre Telefonnummer an.',
+    message: 'Beschreiben Sie Ihre Anfrage in ein paar Sätzen.',
+    invalid: 'Bitte prüfen Sie die markierten Felder.',
+    delivered: 'Ihre Nachricht ist angekommen. Wir melden uns in Kürze.',
+    preview:
+      'Ihre Nachricht ist angekommen. (Demobetrieb: sie wurde nicht per E-Mail versandt, sondern ins Serverprotokoll geschrieben.)',
+    failed: 'Das Senden hat gerade nicht geklappt. Bitte rufen Sie an oder versuchen Sie es erneut.',
+  },
+  fr: {
+    name: 'Merci d’indiquer votre nom.',
+    email: 'Merci d’indiquer une adresse e-mail valide.',
+    phone: 'Merci d’indiquer votre numéro de téléphone.',
+    message: 'Décrivez votre demande en quelques phrases.',
+    invalid: 'Merci de vérifier les champs signalés.',
+    delivered: 'Votre message nous est bien parvenu. Nous revenons vers vous rapidement.',
+    preview:
+      'Votre message nous est bien parvenu. (Mode démo : il n’a pas été envoyé par e-mail, il a été écrit dans le journal du serveur.)',
+    failed: 'L’envoi n’a pas abouti. Merci d’appeler ou de réessayer.',
+  },
+  it: {
+    name: 'Indicate il vostro nome.',
+    email: 'Indicate un indirizzo e-mail valido.',
+    phone: 'Indicate il vostro numero di telefono.',
+    message: 'Descrivete la richiesta in poche frasi.',
+    invalid: 'Controllate i campi segnalati.',
+    delivered: 'Il messaggio è arrivato. Vi risponderemo al più presto.',
+    preview:
+      'Il messaggio è arrivato. (Modalità demo: non è stato inviato per e-mail, è stato scritto nel log del server.)',
+    failed: 'L’invio non è riuscito. Chiamateci oppure riprovate.',
+  },
+  es: {
+    name: 'Indique su nombre.',
+    email: 'Indique una dirección de correo válida.',
+    phone: 'Indique su número de teléfono.',
+    message: 'Cuéntenos su consulta en unas frases.',
+    invalid: 'Revise los campos marcados.',
+    delivered: 'Hemos recibido su mensaje. Le responderemos en breve.',
+    preview:
+      'Hemos recibido su mensaje. (Modo de demostración: no se envió por correo, se anotó en el registro del servidor.)',
+    failed: 'No hemos podido enviarlo ahora. Llámenos o inténtelo de nuevo.',
+  },
+  ru: {
+    name: 'Укажите ваше имя.',
+    email: 'Укажите действительный адрес электронной почты.',
+    phone: 'Укажите ваш номер телефона.',
+    message: 'Опишите запрос в нескольких предложениях.',
+    invalid: 'Проверьте отмеченные поля.',
+    delivered: 'Ваше сообщение получено. Мы свяжемся с вами в ближайшее время.',
+    preview:
+      'Ваше сообщение получено. (Демонстрационный режим: письмо не отправлено, запись сделана в журнале сервера.)',
+    failed: 'Отправить сейчас не удалось. Позвоните нам или попробуйте ещё раз.',
+  },
+  zh: {
+    name: '请填写您的姓名。',
+    email: '请填写有效的电子邮箱地址。',
+    phone: '请填写您的电话号码。',
+    message: '请用几句话说明您的需求。',
+    invalid: '请检查标记出来的字段。',
+    delivered: '您的留言已收到，我们会尽快回复。',
+    preview: '您的留言已收到。（演示模式：未通过邮件发送，已写入服务器日志。）',
+    failed: '暂时发送不成功，请致电我们或稍后重试。',
+  },
+}
 
 const str = (data: FormData, key: string) => String(data.get(key) ?? '').trim()
 
@@ -64,7 +129,8 @@ async function deliver(payload: Record<string, string>) {
 }
 
 export async function submitEnquiry(_prev: FormState, formData: FormData): Promise<FormState> {
-  const locale: Locale = str(formData, 'locale') === 'en' ? 'en' : 'tr'
+  const raw = str(formData, 'locale')
+  const locale: Locale = isLocale(raw) ? raw : 'tr'
   const copy = COPY[locale]
 
   // honeypot: real visitors never see this field

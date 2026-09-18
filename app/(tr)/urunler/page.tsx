@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { CollectionPage } from '@/components/pages/collection-page'
-import { routes } from '@/content/i18n'
-import { products } from '@/content/site'
+import { copy, routes } from '@/content/i18n'
+import { productsFor } from '@/content/locale'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
@@ -10,16 +10,15 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Standart alüminyum profiller, Avrupa normlarında kapı-pencere donanımı ve sistem serilerine uygun fitil-conta grupları. İvedik OSB’den stoktan tedarik.',
   path: '/urunler',
-  altPath: '/en/products',
 })
 
 export default function Page() {
   return (
     <CollectionPage
       locale="tr"
-      title="Ürünler"
-      lead="Sistem serilerinin yanında, bir doğramayı ayakta tutan her şey: profil, donanım ve sızdırmazlık."
-      entries={products}
+      title={copy('tr').products.title}
+      lead={copy('tr').products.lead}
+      entries={productsFor('tr')}
       hrefFor={(slug) => (slug ? routes.product('tr', slug) : routes.products('tr'))}
     />
   )

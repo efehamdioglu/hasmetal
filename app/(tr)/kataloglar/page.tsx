@@ -8,7 +8,6 @@ export const metadata: Metadata = pageMetadata({
   description:
     'Has Metal mimari sistemler ve standart profil katalogları ile GU, SIEGENIA, GIESSE, ASSA ABLOY, KALE ve KAHE donanım katalogları. Sayfa sayfa okuyun, PDF indirin.',
   path: '/kataloglar',
-  altPath: '/en/catalogues',
 })
 
 export default function Page() {

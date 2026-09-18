@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { EntryPage } from '@/components/pages/entry-page'
-import { routes } from '@/content/i18n'
+import { copy, routes } from '@/content/i18n'
+import { productsFor } from '@/content/locale'
+
 import { products } from '@/content/site'
 import { clampDescription, pageMetadata } from '@/lib/seo'
 
@@ -12,14 +14,13 @@ export async function generateMetadata({
   params,
 }: PageProps<'/urunler/[urun]'>): Promise<Metadata> {
   const { urun } = await params
-  const p = products.find((x) => x.slug === urun)
+  const p = productsFor('tr').find((x) => x.slug === urun)
   if (!p) return {}
   return pageMetadata({
     locale: 'tr',
     title: `${p.title} | Has Metal`,
     description: clampDescription(p.intro),
     path: routes.product('tr', p.slug),
-    altPath: routes.product('en', p.slug),
   })
 }
 
@@ -29,8 +30,8 @@ export default async function Page({ params }: PageProps<'/urunler/[urun]'>) {
     <EntryPage
       locale="tr"
       slug={urun}
-      entries={products}
-      collectionTitle="Ürünler"
+      entries={productsFor('tr')}
+      collectionTitle={copy('tr').products.title}
       collectionHref={routes.products('tr')}
       hrefFor={(slug) => routes.product('tr', slug)}
     />

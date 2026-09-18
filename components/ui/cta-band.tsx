@@ -1,16 +1,12 @@
 import Link from 'next/link'
 import { LineRise } from '@/components/motion/line-rise'
 import { Reveal } from '@/components/motion/reveal'
-import { routes, t, type Locale } from '@/content/i18n'
+import { copy, routes, t, type Locale } from '@/content/i18n'
 import { contact, locations } from '@/content/site'
-
-const BODY = {
-  tr: 'Projenizin ölçüleri, sistem tercihi ve teslim takvimi belli olduğunda net bir çalışma hazırlıyoruz. Yazın ya da arayın.',
-  en: 'Once the dimensions, the system and the delivery schedule are clear we put a firm proposal together. Write or call.',
-}
 
 export function CtaBand({ locale, title }: { locale: Locale; title?: string }) {
   const d = t(locale)
+  const c = copy(locale)
 
   return (
     <section className="rule-t bg-paper-2 py-20 lg:py-24">
@@ -21,7 +17,7 @@ export function CtaBand({ locale, title }: { locale: Locale; title?: string }) {
             className="display max-w-[18ch] text-3xl text-ink sm:text-4xl lg:text-5xl"
           />
           <Reveal i={1}>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-2">{BODY[locale]}</p>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-2">{c.cta.body}</p>
           </Reveal>
         </div>
 

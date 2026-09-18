@@ -179,42 +179,89 @@ function check(name, ok, detail = '') {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } })
   const page = await ctx.newPage()
 
-  await page.goto(BASE + '/en/systems/hm-55-t', { waitUntil: 'load' })
-  check('English page uses lang=en', (await page.getAttribute('html', 'lang')) === 'en')
-  // the `.label` class uppercases, so compare on a case-folded copy
-  const enBody = (await page.locator('body').innerText()).toLowerCase()
-  check(
-    'English page is actually in English',
-    enBody.includes('technical documentation') && !enBody.includes('teknik doküman'),
-    enBody.slice(0, 60).replace(/\s+/g, ' '),
-  )
+  // every language must serve a real page with the right lang attribute
+  const LANGS = [
+    ['tr', '/', 'tr'],
+    ['en', '/en', 'en'],
+    ['de', '/de', 'de'],
+    ['fr', '/fr', 'fr'],
+    ['it', '/it', 'it'],
+    ['es', '/es', 'es'],
+    ['ru', '/ru', 'ru'],
+    ['zh', '/zh', 'zh-Hans'],
+  ]
+  for (const [code, path, expected] of LANGS) {
+    await page.goto(BASE + path, { waitUntil: 'load' })
+    const lang = await page.getAttribute('html', 'lang')
+    check(`${code}: html lang is ${expected}`, lang === expected, String(lang))
+  }
 
-  // the switch is a client-side navigation, so wait on the URL, not on load
-  await page.click('a[hreflang="tr"]')
-  await page.waitForURL('**/sistemler/hm-55-t', { timeout: 5000 }).catch(() => {})
+  // and it must actually be translated, not a fallback to Turkish or English
+  const PHRASES = [
+    ['/de/about', 'unternehmen', 'kurumsal'],
+    ['/fr/about', 'entreprise', 'kurumsal'],
+    ['/it/about', 'azienda', 'kurumsal'],
+    ['/es/about', 'empresa', 'kurumsal'],
+    ['/ru/about', 'компания', 'kurumsal'],
+    ['/zh/about', '公司', 'kurumsal'],
+  ]
+  for (const [path, want, mustNot] of PHRASES) {
+    await page.goto(BASE + path, { waitUntil: 'load' })
+    const body = (await page.locator('body').innerText()).toLowerCase()
+    check(
+      `${path} is translated`,
+      body.includes(want) && !body.includes(mustNot),
+      body.slice(0, 40).replace(/\s+/g, ' '),
+    )
+  }
+
+  // the language links live inside a menu, so it has to be opened first
+  const openLang = async () => {
+    const btn = page.locator('header button[aria-expanded]').first()
+    await btn.click()
+    await page.waitForTimeout(400)
+  }
+
+  // the switch has to land on the matching page in the new language
+  await page.goto(BASE + '/sistemler/hm-55-t', { waitUntil: 'load' })
+  await openLang()
+  await page.click('a[hreflang="de"]')
+  await page.waitForURL('**/de/systems/hm-55-t', { timeout: 5000 }).catch(() => {})
   check(
     'language switch keeps the same page',
-    new URL(page.url()).pathname === '/sistemler/hm-55-t',
+    new URL(page.url()).pathname === '/de/systems/hm-55-t',
     new URL(page.url()).pathname,
   )
-  check('switched page uses lang=tr', (await page.getAttribute('html', 'lang')) === 'tr')
 
-  // the translated slugs have to survive the round trip too
+  // translated slugs must survive the round trip
   await page.goto(BASE + '/urunler/fitil-ve-conta', { waitUntil: 'load' })
-  await page.click('a[hreflang="en"]')
-  await page.waitForURL('**/en/products/gaskets-and-seals', { timeout: 5000 }).catch(() => {})
+  await openLang()
+  await page.click('a[hreflang="ru"]')
+  await page.waitForURL('**/ru/products/gaskets-and-seals', { timeout: 5000 }).catch(() => {})
   check(
     'translated slug switches correctly',
-    new URL(page.url()).pathname === '/en/products/gaskets-and-seals',
+    new URL(page.url()).pathname === '/ru/products/gaskets-and-seals',
+    new URL(page.url()).pathname,
+  )
+
+  // and back to Turkish from a non-Turkish language
+  await openLang()
+  await page.click('a[hreflang="tr"]')
+  await page.waitForURL('**/urunler/fitil-ve-conta', { timeout: 5000 }).catch(() => {})
+  check(
+    'switching back reaches the Turkish slug',
+    new URL(page.url()).pathname === '/urunler/fitil-ve-conta',
     new URL(page.url()).pathname,
   )
 
   const alternates = await page.evaluate(() =>
-    [...document.querySelectorAll('link[rel="alternate"]')].map(
-      (l) => l.getAttribute('hreflang') + ' ' + l.getAttribute('href'),
-    ),
+    [...document.querySelectorAll('link[rel="alternate"]')].map((l) => l.getAttribute('hreflang')),
   )
-  check('hreflang pair plus x-default', alternates.length >= 3, alternates.join(' | '))
+  check(
+    'nine hreflang entries: eight languages plus x-default',
+    alternates.length === 9 && alternates.includes('x-default'),
+    alternates.join(' '),
+  )
   await ctx.close()
 }
 

@@ -2,20 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Reveal } from '@/components/motion/reveal'
 import { catalogueForBrand } from '@/content/catalogues'
-import { routes, t, type Locale } from '@/content/i18n'
+import { copy as copy_, routes, t, type Locale } from '@/content/i18n'
 import type { Partner } from '@/content/site'
 import { cn } from '@/lib/utils'
-
-const COPY = {
-  tr: {
-    title: 'Bayilik',
-    body: 'Donanım tedariği ve bayilik başvuruları için bize yazın.',
-  },
-  en: {
-    title: 'Dealership',
-    body: 'Write to us about hardware supply and dealership enquiries.',
-  },
-}
 
 /**
  * The dealer brands as a hairline lattice rather than the scrolling logo strip
@@ -25,12 +14,12 @@ const COPY = {
  */
 export function BrandWall({ partners, locale }: { partners: Partner[]; locale: Locale }) {
   const d = t(locale)
-  const copy = COPY[locale]
+  const copy = copy_(locale).brandWall
 
   return (
     <ul className="rule-t grid grid-cols-2 border-l border-[var(--rule)] lg:grid-cols-4">
       {partners.map((p, i) => {
-        const cat = catalogueForBrand(p.name)
+        const cat = catalogueForBrand(locale, p.name)
 
         const face = (
           <>
@@ -63,7 +52,7 @@ export function BrandWall({ partners, locale }: { partners: Partner[]; locale: L
             {cat ? (
               <Link
                 href={routes.catalogue(locale, cat.slug)}
-                aria-label={`${p.name}, ${cat.title[locale]}`}
+                aria-label={`${p.name}, ${cat.title}`}
                 className={cn(shell, 'group transition-colors hover:bg-paper-2')}
               >
                 {face}
