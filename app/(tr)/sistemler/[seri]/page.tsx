@@ -3,7 +3,7 @@ import { EntryPage } from '@/components/pages/entry-page'
 import { image } from '@/content'
 import { routes } from '@/content/i18n'
 import { systems } from '@/content/site'
-import { pageMetadata } from '@/lib/seo'
+import { clampDescription, pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return systems.map((s) => ({ seri: s.slug }))
@@ -18,7 +18,7 @@ export async function generateMetadata({
   return pageMetadata({
     locale: 'tr',
     title: `${s.title} | Has Metal`,
-    description: s.intro.slice(0, 180),
+    description: clampDescription(s.intro),
     path: routes.system('tr', s.slug),
     altPath: routes.system('en', s.slug),
     image: s.image ? image(s.image).src : undefined,

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ProjectPage } from '@/components/pages/project-page'
 import { image, project, projects } from '@/content'
 import { routes } from '@/content/i18n'
-import { pageMetadata } from '@/lib/seo'
+import { clampDescription, pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return projects.map((p) => ({ project: p.slug }))
@@ -18,7 +18,7 @@ export async function generateMetadata({
   return pageMetadata({
     locale: 'en',
     title: `${p.name} | Has Metal reference project`,
-    description: `${p.name} ${where} is one of the reference projects where Has Metal aluminium framing and facade systems were installed.`,
+    description: clampDescription(`${p.name} ${where} is one of the reference projects where Has Metal aluminium framing and facade systems were installed.`),
     path: routes.project('en', p.slug),
     altPath: routes.project('tr', p.slug),
     image: image(p.cover).src,

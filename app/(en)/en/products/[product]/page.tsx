@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { EntryPage } from '@/components/pages/entry-page'
 import { PRODUCT_SLUGS, productSlugTr, routes } from '@/content/i18n'
 import { productsFor } from '@/content/locale'
-import { pageMetadata } from '@/lib/seo'
+import { clampDescription, pageMetadata } from '@/lib/seo'
 
 const products = productsFor('en')
 
@@ -19,7 +19,7 @@ export async function generateMetadata({
   return pageMetadata({
     locale: 'en',
     title: `${p.title} | Has Metal`,
-    description: p.intro.slice(0, 180),
+    description: clampDescription(p.intro),
     path: routes.product('en', p.slug),
     altPath: routes.product('tr', p.slug),
   })

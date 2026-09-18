@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { CataloguePage } from '@/components/pages/catalogue-page'
 import { catalogue, catalogues, pageImage } from '@/content/catalogues'
 import { routes } from '@/content/i18n'
-import { pageMetadata } from '@/lib/seo'
+import { clampDescription, pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return catalogues.map((c) => ({ catalogue: c.slug }))
@@ -17,7 +17,7 @@ export async function generateMetadata({
   return pageMetadata({
     locale: 'en',
     title: `${c.title.en} | ${c.pages} pages`,
-    description: c.summary.en,
+    description: clampDescription(c.summary.en),
     path: routes.catalogue('en', c.slug),
     altPath: routes.catalogue('tr', c.slug),
     image: pageImage(c.slug, 1),

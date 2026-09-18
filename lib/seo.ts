@@ -13,6 +13,23 @@ export const abs = (p: string) => new URL(p, SITE_URL).toString()
  */
 export const DEFAULT_OG = '/images/hm-commerce-hotel.webp'
 
+/**
+ * Google cuts a description off around 155 to 160 characters. Slicing at a
+ * fixed count leaves the sentence broken mid-word, so this backs up to the
+ * last sentence end, or failing that the last word.
+ */
+export function clampDescription(text: string, max = 155): string {
+  const clean = text.replace(/\s+/g, ' ').trim()
+  if (clean.length <= max) return clean
+
+  const window = clean.slice(0, max + 1)
+  const sentence = Math.max(window.lastIndexOf('. '), window.lastIndexOf('; '))
+  if (sentence > max * 0.6) return window.slice(0, sentence + 1).trim()
+
+  const word = window.lastIndexOf(' ')
+  return window.slice(0, word > 0 ? word : max).trim() + '…'
+}
+
 type Args = {
   locale: Locale
   title: string

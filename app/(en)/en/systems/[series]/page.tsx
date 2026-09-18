@@ -3,7 +3,7 @@ import { EntryPage } from '@/components/pages/entry-page'
 import { image } from '@/content'
 import { routes } from '@/content/i18n'
 import { systemsFor } from '@/content/locale'
-import { pageMetadata } from '@/lib/seo'
+import { clampDescription, pageMetadata } from '@/lib/seo'
 
 const systems = systemsFor('en')
 
@@ -20,7 +20,7 @@ export async function generateMetadata({
   return pageMetadata({
     locale: 'en',
     title: `${s.title} | Has Metal`,
-    description: s.intro.slice(0, 180),
+    description: clampDescription(s.intro),
     path: routes.system('en', s.slug),
     altPath: routes.system('tr', s.slug),
     image: s.image ? image(s.image).src : undefined,

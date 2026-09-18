@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { EntryPage } from '@/components/pages/entry-page'
 import { routes } from '@/content/i18n'
 import { products } from '@/content/site'
-import { pageMetadata } from '@/lib/seo'
+import { clampDescription, pageMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return products.map((p) => ({ urun: p.slug }))
@@ -17,7 +17,7 @@ export async function generateMetadata({
   return pageMetadata({
     locale: 'tr',
     title: `${p.title} | Has Metal`,
-    description: p.intro.slice(0, 180),
+    description: clampDescription(p.intro),
     path: routes.product('tr', p.slug),
     altPath: routes.product('en', p.slug),
   })

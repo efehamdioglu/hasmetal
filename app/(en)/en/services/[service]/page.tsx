@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { EntryPage } from '@/components/pages/entry-page'
 import { SERVICE_SLUGS, routes, serviceSlugTr } from '@/content/i18n'
 import { servicesFor } from '@/content/locale'
-import { pageMetadata } from '@/lib/seo'
+import { clampDescription, pageMetadata } from '@/lib/seo'
 
 const services = servicesFor('en')
 
@@ -19,7 +19,7 @@ export async function generateMetadata({
   return pageMetadata({
     locale: 'en',
     title: `${s.title} | Has Metal`,
-    description: s.intro.slice(0, 180),
+    description: clampDescription(s.intro),
     path: routes.service('en', s.slug),
     altPath: routes.service('tr', s.slug),
   })
