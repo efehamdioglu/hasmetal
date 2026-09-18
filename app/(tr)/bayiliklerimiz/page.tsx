@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
   locale: 'tr',
-  title: 'Bayiliklerimiz | GU, SIEGENIA, GIESSE, DORMA, KALE',
+  title: 'Bayiliklerimiz | GU, SIEGENIA, GIESSE, KALE',
   description:
     'Has Metal; GU-Gretsch Unitas, SIEGENIA, GIESSE, DORMA ve KALE markalarının kapı-pencere donanımı ve mekanizma bayiliğini yürütür.',
   path: '/bayiliklerimiz',

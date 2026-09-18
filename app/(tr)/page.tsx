@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
   locale: 'tr',
-  title: 'Has Metal | Mimari Alüminyum Sistemler ve Cephe, Ankara',
+  title: 'Has Metal | Mimari Alüminyum Sistemler, Ankara',
   description:
     '1974’ten bu yana mimari alüminyum. Kapı ve pencere sistemleri, giydirme cephe, standart profil ve donanım tedariği; Ankara merkezli, yedi şehirde kırk altı referans proje.',
   path: '/',

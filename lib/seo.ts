@@ -6,6 +6,13 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hasmetal.co
 
 export const abs = (p: string) => new URL(p, SITE_URL).toString()
 
+/**
+ * Every page has to carry a share image. Without one a link posted to
+ * WhatsApp or LinkedIn renders as a bare grey card, which is exactly how the
+ * old site looked when anyone shared it.
+ */
+export const DEFAULT_OG = '/images/hm-commerce-hotel.webp'
+
 type Args = {
   locale: Locale
   title: string
@@ -34,6 +41,7 @@ export function pageMetadata({
   // the layout template appends the brand, so a title that already carries it
   // has to opt out or the name lands in the tab twice
   const titleTag = title.includes(brand.name) ? { absolute: title } : title
+  const share = abs(image ?? DEFAULT_OG)
 
   return {
     title: titleTag,
@@ -49,13 +57,13 @@ export function pageMetadata({
       type,
       siteName: brand.legalName,
       locale: ogLocale[locale],
-      images: image ? [{ url: abs(image) }] : undefined,
+      images: [{ url: share }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: image ? [abs(image)] : undefined,
+      images: [share],
     },
   }
 }

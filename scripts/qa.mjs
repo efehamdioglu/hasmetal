@@ -281,6 +281,42 @@ function check(name, ok, detail = '') {
   await ctx.close()
 }
 
+/* --------------------------------------------------------- crawler basics */
+{
+  // the retired WordPress post must answer Gone, not 200 with a noindex tag:
+  // a 200 keeps the address alive in the index whatever the meta says
+  const gone = await fetch(BASE + '/2023/12/26/hello-world', { redirect: 'manual' })
+  check('retired URL answers 410', gone.status === 410, String(gone.status))
+
+  const missing = await fetch(BASE + '/yok-boyle-sayfa')
+  check('unknown URL answers 404', missing.status === 404, String(missing.status))
+
+  // every page needs a share image or links render as a blank grey card
+  const ctx = await browser.newContext()
+  const page = await ctx.newPage()
+  const noOg = []
+  for (const path of [
+    '/',
+    '/kurumsal',
+    '/sistemler',
+    '/sistemler/c60',
+    '/urunler/fitil-ve-conta',
+    '/hizmetler/insaat-ve-taahhut',
+    '/kataloglar',
+    '/teklif',
+    '/en/partners',
+    '/en/services',
+  ]) {
+    await page.goto(BASE + path, { waitUntil: 'domcontentloaded' })
+    const og = await page.evaluate(
+      () => document.querySelector('meta[property="og:image"]')?.getAttribute('content') ?? '',
+    )
+    if (!og) noOg.push(path)
+  }
+  check('every page carries an og:image', noOg.length === 0, noOg.join(' | '))
+  await ctx.close()
+}
+
 /* -------------------------------------------------------------- metadata */
 {
   const ctx = await browser.newContext()

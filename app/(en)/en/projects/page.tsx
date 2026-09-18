@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
   locale: 'en',
-  title: 'Projects | Aluminium framing and facades on 46 buildings',
+  title: 'Projects | 46 aluminium framing and facade jobs',
   description:
     'Regnum Sky Tower, Hilton Garden Inn, the METU research centre, Şişli Municipality and more. Forty six reference projects in Ankara, İstanbul, Samsun, Bodrum, Adana, İzmir and Sivas.',
   path: '/en/projects',

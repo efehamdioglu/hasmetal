@@ -6,7 +6,7 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
   locale: 'en',
-  title: 'Architectural System Series | HM 55, HM 55 T, C50, C60',
+  title: 'System Series | HM 55, HM 55 T, C50, C60',
   description:
     'The architectural aluminium systems Has Metal manufactures itself: the HM 55 and HM 55 T door and window series, the C50 curtain wall and the C60 door and window system.',
   path: '/en/systems',

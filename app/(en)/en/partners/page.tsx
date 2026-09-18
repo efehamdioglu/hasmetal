@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
   locale: 'en',
-  title: 'Partners | GU, SIEGENIA, GIESSE, DORMA, KALE',
+  title: 'Partners | GU, SIEGENIA, GIESSE, KALE',
   description:
     'Has Metal is the dealer for door and window hardware and mechanisms from GU-Gretsch Unitas, SIEGENIA, GIESSE, DORMA and KALE.',
   path: '/en/partners',

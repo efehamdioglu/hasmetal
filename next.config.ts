@@ -16,8 +16,10 @@ const nextConfig: NextConfig = {
   },
 
   async rewrites() {
-    // the leftover WordPress demo post should not resolve at all
-    return { beforeFiles: goneUrls.map((url) => ({ source: url, destination: '/410' })) }
+    // The leftover WordPress demo post is served by a route handler that
+    // answers 410 Gone. Rewriting to an ordinary page answers 200, which keeps
+    // the address alive in the index however the meta tags are set.
+    return { beforeFiles: goneUrls.map((url) => ({ source: url, destination: '/gone' })) }
   },
 }
 
