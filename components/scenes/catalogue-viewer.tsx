@@ -150,8 +150,8 @@ export function CatalogueViewer({ locale, item }: { locale: Locale; item: Catalo
 
   return (
     <div ref={frame} className="select-none">
-      {/* the book */}
-      <div className="relative">
+      {/* the book, with a gutter either side for the turn controls */}
+      <div className="relative px-14 sm:px-16 lg:px-20">
         <div
           className="relative mx-auto flex w-full max-w-5xl"
           style={{ perspective: '2400px' }}
@@ -254,21 +254,35 @@ export function CatalogueViewer({ locale, item }: { locale: Locale; item: Catalo
           </div>
         </div>
 
-        {/* edge hit areas, so the book itself is clickable like a book */}
+        {/* the turn controls sit either side of the book, where a hand would be */}
         <button
           type="button"
           onClick={() => go(-1)}
           disabled={index === 0}
           aria-label={d.prev}
-          className="absolute inset-y-0 left-0 hidden w-[12%] cursor-w-resize disabled:cursor-default lg:block"
-        />
+          className={cn(
+            'absolute top-1/2 left-0 flex h-12 w-12 -translate-y-1/2 items-center justify-center',
+            'border border-[var(--rule-strong)] bg-paper/90 text-xl text-ink backdrop-blur-sm',
+            'transition-[background-color,border-color,opacity] hover:border-ink hover:bg-ink hover:text-paper',
+            'disabled:pointer-events-none disabled:opacity-0',
+          )}
+        >
+          ‹
+        </button>
         <button
           type="button"
           onClick={() => go(1)}
           disabled={index === spreads.length - 1}
           aria-label={d.next}
-          className="absolute inset-y-0 right-0 hidden w-[12%] cursor-e-resize disabled:cursor-default lg:block"
-        />
+          className={cn(
+            'absolute top-1/2 right-0 flex h-12 w-12 -translate-y-1/2 items-center justify-center',
+            'border border-[var(--rule-strong)] bg-paper/90 text-xl text-ink backdrop-blur-sm',
+            'transition-[background-color,border-color,opacity] hover:border-ink hover:bg-ink hover:text-paper',
+            'disabled:pointer-events-none disabled:opacity-0',
+          )}
+        >
+          ›
+        </button>
       </div>
 
       {/* controls */}
@@ -282,24 +296,6 @@ export function CatalogueViewer({ locale, item }: { locale: Locale; item: Catalo
             className="label border border-[var(--rule-strong)] px-3 py-2 transition-colors hover:border-ink hover:text-ink disabled:opacity-35 disabled:hover:border-[var(--rule-strong)]"
           >
             ‹‹
-          </button>
-          <button
-            type="button"
-            onClick={() => go(-1)}
-            disabled={index === 0}
-            aria-label={d.prev}
-            className="label border border-[var(--rule-strong)] px-4 py-2 transition-colors hover:border-ink hover:text-ink disabled:opacity-35 disabled:hover:border-[var(--rule-strong)]"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={() => go(1)}
-            disabled={index === spreads.length - 1}
-            aria-label={d.next}
-            className="label border border-[var(--rule-strong)] px-4 py-2 transition-colors hover:border-ink hover:text-ink disabled:opacity-35 disabled:hover:border-[var(--rule-strong)]"
-          >
-            ›
           </button>
           <button
             type="button"
