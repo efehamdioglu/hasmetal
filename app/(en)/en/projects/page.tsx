@@ -6,7 +6,7 @@ export const metadata: Metadata = pageMetadata({
   locale: 'en',
   title: 'Projects | 46 aluminium framing and facade jobs',
   description:
-    'Regnum Sky Tower, Hilton Garden Inn, the METU research centre, Şişli Municipality and more. Forty six reference projects in Ankara, İstanbul, Samsun, Bodrum, Adana, İzmir and Sivas.',
+    'Regnum Sky Tower, Hilton Garden Inn, the METU research centre, Şişli Municipality and more. Forty six aluminium framing and facade jobs in seven cities.',
   path: '/en/projects',
   altPath: '/referanslar',
 })

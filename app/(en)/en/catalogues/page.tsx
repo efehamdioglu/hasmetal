@@ -6,7 +6,7 @@ export const metadata: Metadata = pageMetadata({
   locale: 'en',
   title: 'Catalogues | Systems, profiles and hardware',
   description:
-    'The Has Metal architectural systems and standard profile catalogues, plus the GU, SIEGENIA, GIESSE, ASSA ABLOY, KALE and KAHE hardware catalogues. Read page by page or download the PDF.',
+    'The Has Metal systems and profile catalogues, plus GU, SIEGENIA, GIESSE, ASSA ABLOY, KALE and KAHE hardware. Read page by page or download the PDF.',
   path: '/en/catalogues',
   altPath: '/kataloglar',
 })

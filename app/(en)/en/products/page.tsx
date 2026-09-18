@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   locale: 'en',
   title: 'Products | Standard profiles, hardware and seals',
   description:
-    'Standard aluminium profiles, door and window hardware built to European standards, and seal groups matched to the system series; supplied from the logistics unit in İvedik OSB, Ankara.',
+    'Standard aluminium profiles, door and window hardware built to European standards, and matched seal groups. Supplied from stock in İvedik OSB, Ankara.',
   path: '/en/products',
   altPath: '/urunler',
 })

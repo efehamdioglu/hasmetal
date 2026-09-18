@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   locale: 'tr',
   title: 'Ürünler | Standart profil, aksesuar ve conta',
   description:
-    'Standart alüminyum profiller, Avrupa normlarında kapı-pencere donanımı ve sistem serilerine uygun fitil-conta grupları; Ankara İvedik OSB’deki lojistik biriminden tedarik.',
+    'Standart alüminyum profiller, Avrupa normlarında kapı-pencere donanımı ve sistem serilerine uygun fitil-conta grupları. İvedik OSB’den stoktan tedarik.',
   path: '/urunler',
   altPath: '/en/products',
 })

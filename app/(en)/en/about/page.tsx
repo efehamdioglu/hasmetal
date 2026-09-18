@@ -6,7 +6,7 @@ export const metadata: Metadata = pageMetadata({
   locale: 'en',
   title: 'Company | Has Metal since 1974',
   description:
-    'Founded in 1974 by Halis Bekar, Has Metal moved from iron fabrication to architectural aluminium over fifty one years, reaching two facilities in Ankara and a reference list across seven cities.',
+    'Founded in 1974 by Halis Bekar. Fifty one years from iron fabrication to architectural aluminium, two facilities in Ankara and references in seven cities.',
   path: '/en/about',
   altPath: '/kurumsal',
 })

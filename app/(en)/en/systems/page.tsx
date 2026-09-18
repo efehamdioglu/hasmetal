@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   locale: 'en',
   title: 'System Series | HM 55, HM 55 T, C50, C60',
   description:
-    'The architectural aluminium systems Has Metal manufactures itself: the HM 55 and HM 55 T door and window series, the C50 curtain wall and the C60 door and window system.',
+    'The aluminium systems Has Metal makes itself: the HM 55 and HM 55 T door and window series, the C50 curtain wall and the C60 system for wide openings.',
   path: '/en/systems',
   altPath: '/sistemler',
 })

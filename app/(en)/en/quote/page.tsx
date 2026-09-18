@@ -6,7 +6,7 @@ export const metadata: Metadata = pageMetadata({
   locale: 'en',
   title: 'Request a quote | Has Metal',
   description:
-    'Ask for a quote on architectural aluminium systems, profiles and hardware. Once the dimensions, the chosen system and the schedule are clear we prepare a firm proposal.',
+    'Ask for a quote on architectural aluminium systems, profiles and hardware. With the dimensions, system and schedule settled we prepare a firm proposal.',
   path: '/en/quote',
   altPath: '/teklif',
 })
