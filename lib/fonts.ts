@@ -1,9 +1,12 @@
-import { Geist_Mono, Instrument_Serif, Inter_Tight } from 'next/font/google'
+import { Instrument_Serif, Inter_Tight } from 'next/font/google'
 
 /**
- * An editorial serif for display, a tight grotesk for reading, a mono for data.
- * All three carry latin-ext, so Turkish ş/ğ/ı/İ are real glyphs rather than
- * synthesised ones.
+ * Two faces only: an editorial serif for display, a tight grotesk for
+ * everything else. Both carry latin-ext, so Turkish ş/ğ/ı/İ are real glyphs
+ * rather than synthesised ones.
+ *
+ * There is deliberately no monospace anywhere on the site. Labels and figures
+ * take their character from case, tracking and tabular numerals instead.
  */
 export const display = Instrument_Serif({
   variable: '--font-display',
@@ -19,10 +22,4 @@ export const sans = Inter_Tight({
   display: 'swap',
 })
 
-export const mono = Geist_Mono({
-  variable: '--font-mono',
-  subsets: ['latin', 'latin-ext'],
-  display: 'swap',
-})
-
-export const fontClass = `${display.variable} ${sans.variable} ${mono.variable}`
+export const fontClass = `${display.variable} ${sans.variable}`

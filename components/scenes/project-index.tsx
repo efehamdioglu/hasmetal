@@ -97,7 +97,7 @@ export function ProjectIndex({ locale, projects, cities, limit, withFilter = fal
               >
                 <span
                   className={cn(
-                    'font-mono text-[0.625rem] tracking-[0.18em] tabular-nums transition-colors',
+                    'text-[0.625rem] font-medium tracking-[0.18em] tabular-nums transition-colors',
                     i === active ? 'text-carmine' : 'text-[var(--text-faint)]',
                   )}
                 >

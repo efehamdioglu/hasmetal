@@ -95,8 +95,10 @@ export const partnersEn: Record<string, string> = {
   'GU-Gretsch Unitas': 'Window and door hardware',
   SIEGENIA: 'Architectural hardware systems',
   GIESSE: 'Door and window accessories',
-  DORMA: 'Door closing and access control',
+  'ASSA ABLOY': 'Entrance and access solutions',
+  DORMA: 'Door closing and control systems',
   KALE: 'Locks and security hardware',
+  KAHE: 'Aluminium framing accessories',
 }
 
 export const homeEn = {

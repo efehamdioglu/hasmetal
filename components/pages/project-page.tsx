@@ -11,16 +11,8 @@ import { breadcrumbSchema, projectSchema } from '@/lib/schema'
 import { pad2 } from '@/lib/utils'
 
 const COPY = {
-  tr: {
-    projects: 'Referanslar',
-    detailsPending:
-      'Bu yapıya ait kapsam, teslim yılı ve kullanılan sistem bilgisi arşivden derleniyor. Proje hakkında ayrıntı için bize yazabilirsiniz.',
-  },
-  en: {
-    projects: 'Projects',
-    detailsPending:
-      'The scope, completion year and systems used on this building are being compiled from the archive. Write to us for details on the project.',
-  },
+  tr: { projects: 'Referanslar' },
+  en: { projects: 'Projects' },
 }
 
 export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) {
@@ -29,15 +21,27 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
   const p = project(slug)
   if (!p) notFound()
 
-  const index = projects.findIndex((x) => x.slug === p.slug)
-  const others = [...projects.slice(index + 1), ...projects.slice(0, index)].slice(0, 3)
-
+  /**
+   * The city already appears in the hero, so it is not repeated as a fact. The
+   * rest of the row fills in on its own as the client confirms year, scope and
+   * systems; until then the page simply does not carry the section.
+   */
   const facts = [
-    p.city ? { label: d.common.city, value: p.city } : null,
     p.year ? { label: d.common.year, value: p.year } : null,
     p.scope ? { label: d.common.scope, value: p.scope } : null,
     p.systems?.length ? { label: d.common.system, value: p.systems.join(', ') } : null,
   ].filter(Boolean) as { label: string; value: string }[]
+
+  const hasBody = Boolean(p.description) || facts.length > 0
+
+  // a reader on an Ankara building is most likely after the other Ankara ones;
+  // with no body text the page leans on this section, so it shows twice as many
+  const index = projects.findIndex((x) => x.slug === p.slug)
+  const rest = [...projects.slice(index + 1), ...projects.slice(0, index)]
+  const others = [
+    ...rest.filter((o) => p.city && o.city === p.city),
+    ...rest.filter((o) => !p.city || o.city !== p.city),
+  ].slice(0, hasBody ? 3 : 6)
 
   return (
     <>
@@ -65,26 +69,32 @@ export function ProjectPage({ locale, slug }: { locale: Locale; slug: string }) 
         imageCaption={p.city || undefined}
       />
 
-      <section className="shell py-16 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[0.45fr_1fr] lg:gap-16">
-          <Reveal>
-            <dl className="rule-t">
-              {facts.map((f) => (
-                <div key={f.label} className="border-b border-[var(--rule)] py-4">
-                  <dt className="label">{f.label}</dt>
-                  <dd className="mt-2 text-base text-ink">{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
+      {hasBody && (
+        <section className="shell py-16 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[0.45fr_1fr] lg:gap-16">
+            {facts.length > 0 && (
+              <Reveal>
+                <dl className="rule-t">
+                  {facts.map((f) => (
+                    <div key={f.label} className="border-b border-[var(--rule)] py-4">
+                      <dt className="label">{f.label}</dt>
+                      <dd className="mt-2 text-base text-ink">{f.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </Reveal>
+            )}
 
-          <Reveal i={1}>
-            <p className="max-w-2xl text-lg leading-relaxed text-ink-2 lg:text-xl">
-              {p.description ?? copy.detailsPending}
-            </p>
-          </Reveal>
-        </div>
-      </section>
+            {p.description && (
+              <Reveal i={1}>
+                <p className="max-w-2xl text-lg leading-relaxed text-ink-2 lg:text-xl">
+                  {p.description}
+                </p>
+              </Reveal>
+            )}
+          </div>
+        </section>
+      )}
 
       {p.gallery && p.gallery.length > 0 && (
         <section className="shell pb-20 lg:pb-28">

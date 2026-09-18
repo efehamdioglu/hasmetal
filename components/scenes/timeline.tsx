@@ -63,7 +63,7 @@ export function Timeline({
                   <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink-2">{step.body}</p>
                 </div>
 
-                <p className="font-mono text-2xl text-ink tabular-nums sm:text-right lg:text-3xl">
+                <p className="text-2xl tracking-tight text-ink tabular-nums sm:text-right lg:text-3xl">
                   <Counter
                     from={0}
                     to={step.metric}

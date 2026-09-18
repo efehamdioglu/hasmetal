@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Hero } from '@/components/scenes/hero'
 import { Timeline } from '@/components/scenes/timeline'
 import { ProjectIndex } from '@/components/scenes/project-index'
+import { BrandWall } from '@/components/scenes/brand-wall'
 import { Img } from '@/components/ui/img'
 import { LineRise } from '@/components/motion/line-rise'
 import { Reveal } from '@/components/motion/reveal'
@@ -163,7 +164,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               <dl className="rule-t mt-10 grid grid-cols-2 gap-8 pt-8">
                 {home.commerce.stats.map((stat) => (
                   <div key={stat.label}>
-                    <dd className="font-mono text-3xl text-ink tabular-nums lg:text-4xl">
+                    <dd className="text-3xl tracking-tight text-ink tabular-nums lg:text-4xl">
                       <Counter from={0} to={stat.value} locale={locale} grouped />
                       <span className="ml-1 text-lg text-ink-3">{stat.unit}</span>
                     </dd>
@@ -178,19 +179,17 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       {/* partners */}
       <section className="shell py-20 lg:py-28">
-        <Reveal>
-          <p className="label">{d.nav.partners}</p>
-        </Reveal>
-        <ul className="rule-t mt-8">
-          {partners.map((p, i) => (
-            <Reveal key={p.name} i={i} as="li">
-              <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1 border-b border-[var(--rule)] py-5">
-                <span className="display text-xl text-ink sm:text-2xl">{p.name}</span>
-                <span className="text-sm text-ink-2">{p.note}</span>
-              </div>
-            </Reveal>
-          ))}
-        </ul>
+        <div className="mb-8 flex items-end justify-between gap-6">
+          <Reveal>
+            <p className="label">{d.nav.partners}</p>
+          </Reveal>
+          <Reveal i={1}>
+            <Link href={routes.partners(locale)} className="label transition-colors hover:text-ink">
+              {d.common.view} →
+            </Link>
+          </Reveal>
+        </div>
+        <BrandWall partners={partners} locale={locale} />
       </section>
     </>
   )

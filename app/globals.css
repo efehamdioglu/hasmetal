@@ -21,7 +21,8 @@
 
   --font-display: var(--font-display), Georgia, serif;
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
+  /* no monospace on this site: figures are set in the body face, tabular */
+  --font-mono: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 
   --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -105,14 +106,32 @@ html.lenis body {
     border-bottom: 1px solid var(--rule);
   }
 
-  /* small uppercase label used for eyebrows, captions and data */
+  /*
+   * Small uppercase label used for eyebrows, captions and data. Set in the
+   * body face: the character comes from the case and the tracking, not from
+   * a monospace.
+   */
   .label {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
     font-size: 0.6875rem;
+    font-weight: 500;
     line-height: 1;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
     color: var(--label-color, var(--color-ink-3));
+  }
+
+  /*
+   * Navigation speaks in the body face, not the mono label face: the bar is
+   * read as language, not as data.
+   */
+  .nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1;
+    letter-spacing: 0.005em;
+    color: var(--color-ink-2);
   }
 
   /* the editorial display face, always set tight and large */

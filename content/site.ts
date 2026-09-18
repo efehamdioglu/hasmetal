@@ -94,16 +94,19 @@ export const systems = [
   },
 ]
 
-/** Shown in place of a spec table until the client supplies catalogue data. */
+/**
+ * Stands in for a spec table until the client supplies catalogue data. Written
+ * as an offer rather than a note about what is missing.
+ */
 export const specsPending = {
   tr: {
     title: 'Teknik doküman',
-    body: 'Bu serinin kesit ölçüleri, yalıtım değerleri ve aksesuar listesi katalogda yer alır. Projenize uygun dokümanı iletmemiz için bize yazın.',
+    body: 'Kesit ölçüleri, yalıtım değerleri ve aksesuar listesi seri kataloğunda. Hangi detaya ihtiyacınız olduğunu yazın, ilgili dokümanı iletelim.',
     cta: 'Teknik doküman isteyin',
   },
   en: {
     title: 'Technical documentation',
-    body: 'Section dimensions, insulation values and the hardware schedule for this series are held in the catalogue. Write to us and we will send the document that fits your project.',
+    body: 'Section dimensions, insulation values and the hardware schedule are in the series catalogue. Tell us which detail you need and we will send the document.',
     cta: 'Request documentation',
   },
 }
@@ -155,12 +158,53 @@ export const services = [
 
 /* -------------------------------------------------------------- partners */
 
-export const partners = [
-  { name: 'GU-Gretsch Unitas', note: 'Pencere ve kapı donanımı' },
-  { name: 'SIEGENIA', note: 'Mimari donanım sistemleri' },
-  { name: 'GIESSE', note: 'Kapı ve pencere aksesuarları' },
+/**
+ * The old site named these in two places that did not agree: the dealer list
+ * carried five, the /aksesuarlar logo wall carried six. This is the union of
+ * both. DORMA is the one the wall has no artwork for, so its card falls back
+ * to the name set in type.
+ *
+ * Logos come from the client's own files, repainted from white to ink by
+ * scripts/brand-logos.mjs so they can sit on the paper ground.
+ */
+export type Partner = {
+  name: string
+  note: string
+  logo?: { src: string; width: number; height: number }
+}
+
+export const partners: Partner[] = [
+  {
+    name: 'GU-Gretsch Unitas',
+    note: 'Pencere ve kapı donanımı',
+    logo: { src: '/brand/gu.webp', width: 169, height: 120 },
+  },
+  {
+    name: 'SIEGENIA',
+    note: 'Mimari donanım sistemleri',
+    logo: { src: '/brand/siegenia.webp', width: 498, height: 120 },
+  },
+  {
+    name: 'GIESSE',
+    note: 'Kapı ve pencere aksesuarları',
+    logo: { src: '/brand/giesse.webp', width: 679, height: 120 },
+  },
+  {
+    name: 'ASSA ABLOY',
+    note: 'Giriş ve erişim çözümleri',
+    logo: { src: '/brand/assa-abloy.webp', width: 864, height: 120 },
+  },
   { name: 'DORMA', note: 'Kapı kapatma ve kontrol sistemleri' },
-  { name: 'KALE', note: 'Kilit ve güvenlik donanımı' },
+  {
+    name: 'KALE',
+    note: 'Kilit ve güvenlik donanımı',
+    logo: { src: '/brand/kale.webp', width: 566, height: 120 },
+  },
+  {
+    name: 'KAHE',
+    note: 'Alüminyum doğrama aksesuarları',
+    logo: { src: '/brand/kahe.webp', width: 283, height: 120 },
+  },
 ]
 
 /* ------------------------------------------------------------- homepage */

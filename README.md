@@ -27,6 +27,7 @@ npm run build && npm start -- -p 3001
 | `npm run shots` | Ekran görüntüleri, `scripts/_shots/` |
 | `npm run verify:urls` | Eski sitenin 28 URL'si ve yeni adresler çözülüyor mu |
 | `npm run content:refresh` | İçeriği canlı siteden yeniden çeker, `content/data.json` üretir |
+| `node scripts/brand-logos.mjs` | Bayilik logolarını beyazdan mürekkep rengine çevirir |
 
 Son beş komut çalışan bir sunucu bekler; hepsi varsayılan olarak
 `http://localhost:3001` adresine bakar, `BASE` ortam değişkeniyle değiştirilebilir.
@@ -131,11 +132,32 @@ kopyası gibi görünmüyor.
   (logodan alındı). Referans indeksi bandı sitedeki tek ters kontrastlı yüzey.
   Açık ve koyu zeminler `--text-strong`, `--text-muted`, `--rule` gibi ton
   token'ları üzerinden çalışır; bileşen hangi zeminde olduğunu bilmek zorunda değil.
-- **Tipografi:** Instrument Serif (display), Inter Tight (gövde), Geist Mono
-  (veri). Üçü de `latin-ext` taşır, yani ş ğ ı İ doğru çizilir.
+- **Tipografi:** iki aile, Instrument Serif (display) ve Inter Tight (gövde ve
+  etiketler). İkisi de `latin-ext` taşır, yani ş ğ ı İ doğru çizilir. Sitede
+  hiçbir yerde monospace kullanılmıyor; etiketler ve rakamlar karakterini
+  büyük harften, harf aralığından ve tabular rakamlardan alır.
 - **Hareket:** süreler 0,4 / 0,8 / 1,2 s, easing `cubic-bezier(0.16, 1, 0.3, 1)`,
   stagger 0,06 s. Açılışta oynayan her şey CSS ile yapılır, JS beklemez; bu LCP
   için belirleyici. `prefers-reduced-motion` global anahtar.
+
+### Navigasyon
+
+Üst menüde bir sekmenin üzerine gelindiğinde ya da klavyeyle odaklanıldığında
+o bölümün alt sayfaları hemen altında açılır: sistem serileri, ürün grupları,
+hizmetler, ve Kurumsal altında HM Commerce Center ile Bayiliklerimiz. Menü
+verisi sunucuda `content/nav.ts` içinde kurulur ve düz veri olarak geçilir,
+böylece içerik modülleri istemci paketine hiç girmez.
+
+### Bayilik markaları
+
+Eski sitedeki `/aksesuarlar` sayfası bir marka logosu duvarıydı ve altı marka
+taşıyordu: KAHE, G-U, GIESSE, ASSA ABLOY, KALE, SIEGENIA. Bayilik listesi ise
+başka bir sayfada beş marka sayıyordu. Yeni sitede ikisinin birleşimi var.
+
+Logo dosyaları koyu zemin için çizilmiş, yani saf beyaz + alfa. Doğrudan
+kullanıldığında kâğıt zeminde görünmez oluyorlardı; `scripts/brand-logos.mjs`
+her birinin alfa kanalını alıp mürekkep rengine boyar. Marka şekline
+dokunulmaz, yalnızca rengi değişir.
 
 ### Referans indeksi
 
@@ -189,7 +211,10 @@ Bunlar bizim değil, müşterinin elinde:
 4. **Hero ve öne çıkan projeler için orijinal fotoğraflar.** Mevcut görseller
    700 px ile 2560 px arasında, medyan yaklaşık 1200x800. Tasarım buna göre
    kuruldu ama yüksek çözünürlüklü kareler gelirse belirgin biçimde güçlenir.
-5. **Vektör logo.** Elimizdeki 478x440 PNG; SVG gelirse nav ve footer keskinleşir.
+5. **Vektör logolar.** Has Metal logosu elimizde 478x440 PNG; SVG gelirse nav ve
+   footer keskinleşir. Bayilik markalarının logoları da eski siteden alınan
+   düşük çözünürlüklü dosyalar: markaların kendi basın kitlerinden SVG almak
+   hem daha keskin hem de marka kullanımı açısından daha doğru olur.
 6. **Google Business Profile.** Üç tesis için üç ayrı `LocalBusiness` kaydı
    hazır; profillerin doğrulanması yerel aramada karşılığını doğrudan verir.
 

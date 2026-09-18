@@ -4,6 +4,7 @@ import { CtaBand } from '@/components/ui/cta-band'
 import { Img } from '@/components/ui/img'
 import { EnquiryForm } from '@/components/ui/enquiry-form'
 import { Timeline } from '@/components/scenes/timeline'
+import { BrandWall } from '@/components/scenes/brand-wall'
 import { LineRise } from '@/components/motion/line-rise'
 import { Reveal } from '@/components/motion/reveal'
 import { Counter } from '@/components/motion/counter'
@@ -103,16 +104,7 @@ export function PartnersPage({ locale }: { locale: Locale }) {
       />
 
       <section className="shell pb-20 lg:pb-28">
-        <ul className="rule-t">
-          {partners.map((p, i) => (
-            <Reveal key={p.name} i={i} as="li">
-              <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-2 border-b border-[var(--rule)] py-8">
-                <span className="display text-2xl text-ink sm:text-3xl">{p.name}</span>
-                <span className="text-sm text-ink-2">{p.note}</span>
-              </div>
-            </Reveal>
-          ))}
-        </ul>
+        <BrandWall partners={partners} locale={locale} />
       </section>
 
       <CtaBand locale={locale} />
@@ -160,7 +152,7 @@ export function CommercePage({ locale }: { locale: Locale }) {
             <dl className="rule-t">
               {home.commerce.stats.map((stat) => (
                 <div key={stat.label} className="border-b border-[var(--rule)] py-5">
-                  <dd className="font-mono text-3xl text-ink tabular-nums">
+                  <dd className="text-3xl tracking-tight text-ink tabular-nums">
                     <Counter from={0} to={stat.value} locale={locale} grouped />
                     <span className="ml-1 text-lg text-ink-3">{stat.unit}</span>
                   </dd>

@@ -6,6 +6,7 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { localBusinessSchemas, organizationSchema } from '@/lib/schema'
 import { fontClass } from '@/lib/fonts'
 import { htmlLang, type Locale } from '@/content/i18n'
+import { navSections } from '@/content/nav'
 
 /**
  * Each locale gets its own root layout so `<html lang>` is honest; everything
@@ -21,7 +22,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
       <body className="flex min-h-full flex-col bg-paper">
         <JsonLd data={[organizationSchema(), ...localBusinessSchemas()]} />
         <SmoothScroll />
-        <Nav locale={locale} />
+        <Nav locale={locale} sections={navSections(locale)} />
         <main className="flex-1">{children}</main>
         <Footer locale={locale} />
       </body>
