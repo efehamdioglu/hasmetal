@@ -10,6 +10,7 @@ import { products, services, systems } from '../content/site.ts'
 // read straight from disk: the JSON import attribute syntax differs between
 // the bundler and bare node, and this script runs under bare node
 const projects = JSON.parse(fs.readFileSync('content/data.json', 'utf8')).projects
+const catalogues = Object.keys(JSON.parse(fs.readFileSync('content/catalogues.json', 'utf8')))
 
 const BASE = process.env.BASE ?? 'http://localhost:3001'
 const EM = '—'
@@ -28,6 +29,8 @@ const paths = [
       routes.commerce(l),
       routes.contact(l),
       routes.quote(l),
+      routes.catalogues(l),
+      ...catalogues.map((slug) => routes.catalogue(l, slug)),
       ...systems.map((s) => routes.system(l, s.slug)),
       ...products.map((p) => routes.product(l, p.slug)),
       ...services.map((s) => routes.service(l, s.slug)),

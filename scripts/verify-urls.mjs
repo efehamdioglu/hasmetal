@@ -74,6 +74,13 @@ const extra = [
   '/en/hm-commerce-center',
   '/en/contact',
   '/en/quote',
+  '/kataloglar',
+  '/kataloglar/has-metal-mimari-sistemler',
+  '/kataloglar/siegenia',
+  '/en/catalogues',
+  '/en/catalogues/has-metal-mimari-sistemler',
+  '/catalogs/has-metal-mimari-sistemler/p001.webp',
+  '/catalogs/has-metal-mimari-sistemler.pdf',
 ]
 console.log(`\nnew URLs (${extra.length}):`)
 for (const url of extra) {

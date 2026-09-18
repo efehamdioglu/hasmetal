@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CataloguePage } from '@/components/pages/catalogue-page'
+import { CollectionPage } from '@/components/pages/collection-page'
 import { routes } from '@/content/i18n'
 import { servicesFor } from '@/content/locale'
 import { pageMetadata } from '@/lib/seo'
@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function Page() {
   return (
-    <CataloguePage
+    <CollectionPage
       locale="en"
       title="Services"
       lead="Making the profile is not the end of it: we finish the surface, and where it is called for we put the building up as well."

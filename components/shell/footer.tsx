@@ -16,6 +16,7 @@ export function Footer({ locale }: { locale: Locale }) {
     { label: d.nav.services, href: routes.services(locale) },
     { label: d.nav.projects, href: routes.projects(locale) },
     { label: d.nav.partners, href: routes.partners(locale) },
+    { label: d.nav.catalogues, href: routes.catalogues(locale) },
     { label: d.nav.contact, href: routes.contact(locale) },
   ]
 

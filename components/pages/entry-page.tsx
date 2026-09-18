@@ -8,8 +8,9 @@ import { JsonLd } from '@/components/ui/json-ld'
 import { image } from '@/content'
 import { routes, t, type Locale } from '@/content/i18n'
 import { specsFor } from '@/content/locale'
+import { SYSTEMS_CATALOGUE } from '@/content/catalogues'
 import { breadcrumbSchema, productSchema } from '@/lib/schema'
-import type { CatalogueEntry } from './catalogue-page'
+import type { CatalogueEntry } from './collection-page'
 
 type Entry = CatalogueEntry & { intro: string }
 
@@ -82,15 +83,20 @@ export function EntryPage({
               <div className="rule-t mt-12 pt-8">
                 <p className="label">{docs.title}</p>
                 <p className="mt-4 max-w-md text-base leading-relaxed text-ink-2">{docs.body}</p>
-                <Link
-                  href={routes.contact(locale)}
-                  className="group mt-6 inline-flex items-center gap-3 border border-ink px-7 py-3.5 transition-colors hover:bg-ink hover:text-paper"
-                >
-                  <span className="label text-inherit">{docs.cta}</span>
-                  <span className="text-carmine transition-transform duration-500 group-hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
+                <div className="mt-6 flex flex-wrap items-center gap-x-7 gap-y-4">
+                  <Link
+                    href={routes.catalogue(locale, SYSTEMS_CATALOGUE)}
+                    className="group inline-flex items-center gap-3 border border-ink px-7 py-3.5 transition-colors hover:bg-ink hover:text-paper"
+                  >
+                    <span className="label text-inherit">{docs.cta}</span>
+                    <span className="text-carmine transition-transform duration-500 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                  <Link href={routes.contact(locale)} className="label transition-colors hover:text-ink">
+                    {docs.ask}
+                  </Link>
+                </div>
               </div>
             )}
           </Reveal>

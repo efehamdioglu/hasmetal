@@ -218,6 +218,69 @@ function check(name, ok, detail = '') {
   await ctx.close()
 }
 
+/* ------------------------------------------------------------ catalogues */
+{
+  const ctx = await browser.newContext({ viewport: { width: 1500, height: 950 } })
+  const page = await ctx.newPage()
+  const missing = []
+  page.on('response', (r) => {
+    if (r.url().includes('/catalogs/') && r.status() >= 400) missing.push(r.url())
+  })
+
+  await page.goto(BASE + '/kataloglar', { waitUntil: 'load' })
+  const covers = await page.locator('img[src^="/catalogs/"]').count()
+  check('catalogue index shows every cover', covers === 8, `${covers} kapak`)
+
+  await page.goto(BASE + '/kataloglar/has-metal-mimari-sistemler', { waitUntil: 'load' })
+  await page.waitForTimeout(900)
+
+  // the nav carries a "TR / EN" line, so match the counter by shape
+  const counter = () =>
+    page.evaluate(() => {
+      const el = [...document.querySelectorAll('p')].find((p) =>
+        /^\s*\d+\s*\/\s*\d+\s*$/.test(p.innerText),
+      )
+      return el?.innerText.trim() ?? ''
+    })
+
+  const first = await counter()
+  check('viewer opens on the cover', first.startsWith('1 /'), first)
+
+  // the arrow keys have to turn the page, and the turn has to finish
+  await page.keyboard.press('ArrowRight')
+  await page.waitForTimeout(1100)
+  const after = await page.evaluate(
+    () => document.querySelectorAll('img[src*="/catalogs/"][src*="p00"]').length,
+  )
+  check('page turn loads the next spread', after >= 2, `${after} sayfa görseli`)
+
+  const leafGone = await page.evaluate(
+    () => document.querySelector('[style*="preserve-3d"]') === null,
+  )
+  check('the turning leaf is removed when it lands', leafGone)
+
+  // the reader must not be able to run past either end
+  await page.keyboard.press('Home')
+  await page.waitForTimeout(400)
+  await page.keyboard.press('ArrowLeft')
+  await page.waitForTimeout(600)
+  const atStart = await counter()
+  check('cannot page before the cover', atStart.startsWith('1 /'), atStart)
+
+  await page.goto(BASE + '/en/catalogues/siegenia', { waitUntil: 'load' })
+  await page.waitForTimeout(700)
+  const enBody = (await page.locator('body').innerText()).toLowerCase()
+  check('brand catalogue offers no PDF download', !enBody.includes('download pdf'))
+
+  await page.goto(BASE + '/kataloglar/has-metal-standart-profiller', { waitUntil: 'load' })
+  await page.waitForTimeout(700)
+  const pdf = await page.locator('a[download]').count()
+  check('our own catalogue offers the PDF', pdf === 1, `${pdf} bağlantı`)
+
+  check('no missing catalogue assets', missing.length === 0, missing.slice(0, 2).join(' | '))
+  await ctx.close()
+}
+
 /* -------------------------------------------------------------- metadata */
 {
   const ctx = await browser.newContext()

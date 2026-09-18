@@ -1,38 +1,28 @@
 import Link from 'next/link'
-import { PageHero } from '@/components/ui/page-hero'
+import { notFound } from 'next/navigation'
 import { CtaBand } from '@/components/ui/cta-band'
-import { Img } from '@/components/ui/img'
+import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { Reveal } from '@/components/motion/reveal'
+import { LineRise } from '@/components/motion/line-rise'
 import { JsonLd } from '@/components/ui/json-ld'
+import { CatalogueViewer } from '@/components/scenes/catalogue-viewer'
+import { catalogue, catalogues, pageImage } from '@/content/catalogues'
 import { routes, t, type Locale } from '@/content/i18n'
-import { breadcrumbSchema, itemListSchema } from '@/lib/schema'
-import { pad2 } from '@/lib/utils'
+import { breadcrumbSchema } from '@/lib/schema'
+import { abs } from '@/lib/seo'
 
-export type CatalogueEntry = {
-  slug: string
-  title: string
-  summary: string
-  code?: string
-  image?: string
+const COPY = {
+  tr: { title: 'Kataloglar', others: 'Diğer kataloglar' },
+  en: { title: 'Catalogues', others: 'Other catalogues' },
 }
 
-/** One layout for the systems, products and services listings. */
-export function CataloguePage({
-  locale,
-  title,
-  lead,
-  entries,
-  hrefFor,
-  withImages = false,
-}: {
-  locale: Locale
-  title: string
-  lead: string
-  entries: CatalogueEntry[]
-  hrefFor: (slug: string) => string
-  withImages?: boolean
-}) {
+export function CataloguePage({ locale, slug }: { locale: Locale; slug: string }) {
   const d = t(locale)
+  const copy = COPY[locale]
+  const item = catalogue(slug)
+  if (!item) notFound()
+
+  const others = catalogues.filter((c) => c.slug !== item.slug).slice(0, 4)
 
   return (
     <>
@@ -40,66 +30,106 @@ export function CataloguePage({
         data={[
           breadcrumbSchema([
             { name: d.common.homeCrumb, path: routes.home(locale) },
-            { name: title, path: hrefFor('').replace(/\/$/, '') },
+            { name: copy.title, path: routes.catalogues(locale) },
+            { name: item.title[locale], path: routes.catalogue(locale, item.slug) },
           ]),
-          itemListSchema(entries.map((e) => ({ name: e.title, path: hrefFor(e.slug) }))),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'Book',
+            name: item.title[locale],
+            description: item.summary[locale],
+            numberOfPages: item.pages,
+            inLanguage: item.language.toLowerCase(),
+            bookFormat: 'https://schema.org/EBook',
+            image: abs(pageImage(item.slug, 1)),
+            url: abs(routes.catalogue(locale, item.slug)),
+            ...(item.year ? { datePublished: item.year } : {}),
+            ...(item.brand ? { publisher: { '@type': 'Organization', name: item.brand } } : {}),
+          },
         ]}
       />
 
-      <PageHero
-        crumbs={[{ label: d.common.homeCrumb, href: routes.home(locale) }, { label: title }]}
-        title={title}
-        lead={lead}
-      />
+      <header className="shell pt-28 pb-8 lg:pt-36 lg:pb-10">
+        <Reveal immediate>
+          <Breadcrumbs
+            items={[
+              { label: d.common.homeCrumb, href: routes.home(locale) },
+              { label: copy.title, href: routes.catalogues(locale) },
+              { label: item.title[locale] },
+            ]}
+          />
+        </Reveal>
 
-      <section className="shell pb-20 lg:pb-28">
-        {withImages ? (
-          <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-            {entries.map((e, i) => (
-              <Reveal key={e.slug} i={i % 4}>
-                <Link href={hrefFor(e.slug)} className="group block">
-                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-paper-2">
-                    {e.image ? (
-                      <Img
-                        src={e.image}
-                        alt={e.title}
-                        sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
-                        className="object-contain p-6 transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-                      />
-                    ) : (
-                      <span className="display absolute inset-0 flex items-center justify-center text-5xl text-paper-3">
-                        {e.code ?? pad2(i + 1)}
-                      </span>
-                    )}
-                  </div>
-                  <p className="label mt-4 transition-colors group-hover:text-carmine">
-                    {e.code ?? pad2(i + 1)}
-                  </p>
-                  <h2 className="mt-2 text-base text-ink">{e.summary}</h2>
-                </Link>
-              </Reveal>
-            ))}
+        <div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <LineRise
+              as="h1"
+              immediate
+              delay={0.1}
+              lines={[item.title[locale]]}
+              className="display max-w-[20ch] text-[clamp(2rem,5vw,3.75rem)] text-ink"
+            />
+            <Reveal immediate i={1}>
+              <p className="label mt-4 flex flex-wrap items-center gap-x-3">
+                <span>{d.catalogue.pageCount(item.pages)}</span>
+                <span className="text-ink-3">·</span>
+                <span>{item.language}</span>
+                {item.year && (
+                  <>
+                    <span className="text-ink-3">·</span>
+                    <span>{item.year}</span>
+                  </>
+                )}
+                {item.brand && (
+                  <>
+                    <span className="text-ink-3">·</span>
+                    <span>{item.brand}</span>
+                  </>
+                )}
+              </p>
+            </Reveal>
           </div>
-        ) : (
-          <ul className="rule-t">
-            {entries.map((e, i) => (
-              <Reveal key={e.slug} i={i} as="li">
-                <Link
-                  href={hrefFor(e.slug)}
-                  className="group flex flex-wrap items-baseline justify-between gap-x-10 gap-y-2 border-b border-[var(--rule)] py-7"
-                >
-                  <span className="flex items-baseline gap-5">
-                    <span className="label text-ink-3 transition-colors group-hover:text-carmine">
-                      {pad2(i + 1)}
-                    </span>
-                    <span className="display text-2xl text-ink sm:text-3xl">{e.title}</span>
-                  </span>
-                  <span className="text-sm text-ink-2">{e.summary}</span>
+
+          <Reveal immediate i={2}>
+            <p className="max-w-md text-base leading-relaxed text-ink-2">{item.summary[locale]}</p>
+          </Reveal>
+        </div>
+      </header>
+
+      <section className="shell pb-16 lg:pb-20">
+        <CatalogueViewer locale={locale} item={item} />
+      </section>
+
+      <section className="shell rule-t py-14 lg:py-16">
+        <Reveal>
+          <p className="label">{copy.others}</p>
+        </Reveal>
+        <ul className="mt-8 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {others.map((o, i) => {
+            const [w, h] = o.size[0] ?? [1200, 1600]
+            return (
+              <Reveal key={o.slug} i={i} as="li">
+                <Link href={routes.catalogue(locale, o.slug)} className="group block">
+                  <div className="overflow-hidden bg-paper-2">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={pageImage(o.slug, 1)}
+                      alt={o.title[locale]}
+                      width={w}
+                      height={h}
+                      loading="lazy"
+                      className="block w-full bg-white object-contain transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <p className="label mt-3">{d.catalogue.pageCount(o.pages)}</p>
+                  <h3 className="display mt-1 text-lg text-ink transition-colors group-hover:text-carmine">
+                    {o.title[locale]}
+                  </h3>
                 </Link>
               </Reveal>
-            ))}
-          </ul>
-        )}
+            )
+          })}
+        </ul>
       </section>
 
       <CtaBand locale={locale} />

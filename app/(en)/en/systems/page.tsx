@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CataloguePage } from '@/components/pages/catalogue-page'
+import { CollectionPage } from '@/components/pages/collection-page'
 import { routes } from '@/content/i18n'
 import { systemsFor } from '@/content/locale'
 import { pageMetadata } from '@/lib/seo'
@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function Page() {
   return (
-    <CataloguePage
+    <CollectionPage
       locale="en"
       title="Architectural System Series"
       lead="Door, window and facade series of our own making. Insulated and non insulated builds, a curtain wall grid, and sections defined for wide openings."

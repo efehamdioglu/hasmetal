@@ -44,3 +44,4 @@ next-env.d.ts
 /scripts/_scrape/
 /scripts/_text/
 /scripts/_shots/
+/scripts/_pdf/

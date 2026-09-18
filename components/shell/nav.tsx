@@ -164,7 +164,12 @@ export function Nav({ locale, sections }: { locale: Locale; sections: NavSection
               className="hidden overflow-hidden border-t border-[var(--rule)] xl:block"
             >
               <div className="shell py-2">
-                <div className="grid grid-cols-5 divide-x divide-[var(--rule)]">
+                <div
+                  className="grid divide-x divide-[var(--rule)]"
+                  style={{
+                    gridTemplateColumns: `repeat(${active.children.length + 1}, minmax(0, 1fr))`,
+                  }}
+                >
                   {active.children.map((child) => (
                     <Link
                       key={child.href}

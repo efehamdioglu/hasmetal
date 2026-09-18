@@ -1,3 +1,4 @@
+import { catalogues } from './catalogues'
 import { routes, t, type Locale } from './i18n'
 import { productsFor, servicesFor, systemsFor } from './locale'
 
@@ -8,10 +9,12 @@ const COPY = {
   tr: {
     commerce: 'Kendi yaptığımız otel ve iş merkezi',
     partners: 'Temsil ettiğimiz donanım markaları',
+    catalogues: (n: number) => `${n} katalog, sayfa sayfa okunabilir`,
   },
   en: {
     commerce: 'The hotel and business centre we built',
     partners: 'The hardware brands we represent',
+    catalogues: (n: number) => `${n} catalogues you can read page by page`,
   },
 }
 
@@ -45,21 +48,35 @@ export function navSections(locale: Locale): NavSection[] {
       key: 'systems',
       label: d.nav.systems,
       href: routes.systems(locale),
-      children: systemsFor(locale).map((s) => ({
-        label: s.code,
-        summary: s.summary,
-        href: routes.system(locale, s.slug),
-      })),
+      children: [
+        ...systemsFor(locale).map((s) => ({
+          label: s.code,
+          summary: s.summary,
+          href: routes.system(locale, s.slug),
+        })),
+        {
+          label: d.nav.catalogues,
+          summary: copy.catalogues(catalogues.length),
+          href: routes.catalogues(locale),
+        },
+      ],
     },
     {
       key: 'products',
       label: d.nav.products,
       href: routes.products(locale),
-      children: productsFor(locale).map((p) => ({
-        label: p.title,
-        summary: p.summary,
-        href: routes.product(locale, p.slug),
-      })),
+      children: [
+        ...productsFor(locale).map((p) => ({
+          label: p.title,
+          summary: p.summary,
+          href: routes.product(locale, p.slug),
+        })),
+        {
+          label: d.nav.catalogues,
+          summary: copy.catalogues(catalogues.length),
+          href: routes.catalogues(locale),
+        },
+      ],
     },
     {
       key: 'services',

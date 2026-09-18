@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CataloguePage } from '@/components/pages/catalogue-page'
+import { CollectionPage } from '@/components/pages/collection-page'
 import { routes } from '@/content/i18n'
 import { systems } from '@/content/site'
 import { pageMetadata } from '@/lib/seo'
@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function Page() {
   return (
-    <CataloguePage
+    <CollectionPage
       locale="tr"
       title="Mimari Sistem Serileri"
       lead="Kendi ürettiğimiz kapı, pencere ve cephe serileri. Yalıtımlı ve yalıtımsız kurgular, giydirme cephe ızgarası ve geniş açıklıklar için tanımlanmış kesitler."

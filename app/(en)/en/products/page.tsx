@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { CataloguePage } from '@/components/pages/catalogue-page'
+import { CollectionPage } from '@/components/pages/collection-page'
 import { routes } from '@/content/i18n'
 import { productsFor } from '@/content/locale'
 import { pageMetadata } from '@/lib/seo'
@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function Page() {
   return (
-    <CataloguePage
+    <CollectionPage
       locale="en"
       title="Products"
       lead="Alongside the system series, everything that holds a frame together: profile, hardware and the seal."

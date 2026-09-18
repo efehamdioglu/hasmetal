@@ -28,6 +28,7 @@ npm run build && npm start -- -p 3001
 | `npm run verify:urls` | Eski sitenin 28 URL'si ve yeni adresler çözülüyor mu |
 | `npm run content:refresh` | İçeriği canlı siteden yeniden çeker, `content/data.json` üretir |
 | `node scripts/brand-logos.mjs` | Bayilik logolarını beyazdan mürekkep rengine çevirir |
+| `node scripts/catalogues.mjs` | Katalog PDF'lerini indirir, her sayfayı webp'ye çevirir |
 
 Son beş komut çalışan bir sunucu bekler; hepsi varsayılan olarak
 `http://localhost:3001` adresine bakar, `BASE` ortam değişkeniyle değiştirilebilir.
@@ -159,6 +160,28 @@ kullanıldığında kâğıt zeminde görünmez oluyorlardı; `scripts/brand-log
 her birinin alfa kanalını alıp mürekkep rengine boyar. Marka şekline
 dokunulmaz, yalnızca rengi değişir.
 
+### Kataloglar
+
+Eski sitede sekiz gerçek katalog vardı ama hepsi bir WordPress flipbook
+eklentisinin arkasındaydı: `/aksesuarlar` altında altı marka kataloğu,
+`/mimari-sistem-serileri-2` ve `/standart-profiller` altında da Has Metal'in
+kendi iki kataloğu. Toplam 1.305 sayfa, 176 MB PDF, hiçbiri arama motorunda
+görünmüyor ve ilk sayfayı görmek için 40 MB indirmek gerekiyor.
+
+`scripts/catalogues.mjs` her PDF'i indirip her sayfayı webp'ye çeviriyor
+(1200 px, ortalama 62 kB). Okuyucu `components/scenes/catalogue-viewer.tsx`:
+iki sayfalık açılım, sırtın etrafında dönen gerçek sayfa çevirme, klavye
+okları, sayfa küçük resimleri, tek sayfayı büyütme. Tarayıcıya PDF motoru
+inmiyor, ilk açılışta yalnızca görünen iki sayfa yükleniyor.
+
+Sistem sayfalarındaki "teknik doküman" bloğu artık doğrudan 2024 mimari
+sistemler kataloğuna bağlanıyor. **Bu, daha önce "eksik" diye not düştüğüm
+teknik veri sorununu çözüyor:** kesit ölçüleri ve profil ağırlıkları bu
+kataloğun içinde, uydurmaya gerek yok.
+
+Kendi kataloglarımız PDF olarak da indirilebiliyor. Marka katalogları
+indirilemiyor, çünkü o dosyalar üreticilerin; sayfa olarak gösteriliyorlar.
+
 ### Referans indeksi
 
 Sitenin merkez parçası. 46 proje adı büyük tipografiyle alt alta; imleç ya da
@@ -199,11 +222,12 @@ yeterli.
 
 Bunlar bizim değil, müşterinin elinde:
 
-1. **Ürün teknik dokümanları.** HM 55, HM 55 T, C50 ve C60 sayfalarında spec
-   tablosu yok, çünkü eski sitede de yoktu. Uydurma bir Uf değeri alüminyum
-   sektöründe ciddi bir güven sorunudur; sayfalar bunun yerine "teknik doküman
-   isteyin" bloğuyla dürüstçe çalışıyor. Katalog PDF'leri gelince
-   `content/site.ts` içindeki `specsPending` bloğu gerçek tabloyla değiştirilir.
+1. **Uf ve yalıtım değerleri.** 2024 kataloğu kesit ölçülerini ve profil
+   ağırlıklarını veriyor, bu yüzden sistem sayfaları artık doğrudan kataloğa
+   bağlanıyor. Ama ısı geçirgenlik (Uf/Uw) değerleri katalogda da yok. Test
+   raporu gelirse sistem sayfalarına tablo olarak eklenir; gelene kadar
+   uydurulmuyor, çünkü alüminyum sektöründe yanlış bir Uf değeri ciddi bir
+   güven sorunudur.
 2. **Proje bilgileri.** Eski sitede her proje için yalnızca ad ve şehir var.
    Yıl, kapsam ve kullanılan sistem `content/site.ts` içindeki `projectDetails`
    kaydına eklendiği anda proje sayfalarında görünür, ek kod gerekmez.

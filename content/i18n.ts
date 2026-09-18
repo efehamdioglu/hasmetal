@@ -14,6 +14,7 @@ const SEGMENTS = {
     services: 'hizmetler',
     projects: 'referanslar',
     partners: 'bayiliklerimiz',
+    catalogues: 'kataloglar',
     commerce: 'hm-commerce-center',
     contact: 'iletisim',
     quote: 'teklif',
@@ -25,6 +26,7 @@ const SEGMENTS = {
     services: 'services',
     projects: 'projects',
     partners: 'partners',
+    catalogues: 'catalogues',
     commerce: 'hm-commerce-center',
     contact: 'contact',
     quote: 'quote',
@@ -73,6 +75,8 @@ export const routes = {
   projects: (l: Locale) => `${prefix(l)}/${SEGMENTS[l].projects}`,
   project: (l: Locale, slug: string) => `${prefix(l)}/${SEGMENTS[l].projects}/${slug}`,
   partners: (l: Locale) => `${prefix(l)}/${SEGMENTS[l].partners}`,
+  catalogues: (l: Locale) => `${prefix(l)}/${SEGMENTS[l].catalogues}`,
+  catalogue: (l: Locale, slug: string) => `${prefix(l)}/${SEGMENTS[l].catalogues}/${slug}`,
   commerce: (l: Locale) => `${prefix(l)}/${SEGMENTS[l].commerce}`,
   contact: (l: Locale) => `${prefix(l)}/${SEGMENTS[l].contact}`,
   quote: (l: Locale) => `${prefix(l)}/${SEGMENTS[l].quote}`,
@@ -112,6 +116,8 @@ export function counterpartPath(pathname: string, from: Locale): string {
       return routes.about(to)
     case 'partners':
       return routes.partners(to)
+    case 'catalogues':
+      return rest.length ? routes.catalogue(to, rest[0]) : routes.catalogues(to)
     case 'commerce':
       return routes.commerce(to)
     case 'contact':
@@ -136,6 +142,7 @@ const tr = {
     services: 'Hizmetler',
     projects: 'Referanslar',
     partners: 'Bayiliklerimiz',
+    catalogues: 'Kataloglar',
     contact: 'İletişim',
     quote: 'Teklif Al',
     menu: 'Ana menü',
@@ -161,6 +168,24 @@ const tr = {
     year: 'Yıl',
     scope: 'Kapsam',
     system: 'Sistem',
+  },
+  catalogue: {
+    open: 'Kataloğu aç',
+    prev: 'Önceki sayfa',
+    next: 'Sonraki sayfa',
+    first: 'İlk sayfa',
+    last: 'Son sayfa',
+    page: 'Sayfa',
+    pageCount: (n: number) => `${n} sayfa`,
+    of: (a: number, b: number) => `${a} / ${b}`,
+    thumbnails: 'Sayfalar',
+    hideThumbnails: 'Sayfaları gizle',
+    zoom: 'Büyüt',
+    close: 'Kapat',
+    download: 'PDF indir',
+    goToPage: 'Sayfaya git',
+    keyboardHint: 'Ok tuşlarıyla sayfa çevirebilirsiniz.',
+    cover: 'Kapak',
   },
   sections: {
     about: 'Hakkımızda',
@@ -200,6 +225,7 @@ const en: Dictionary = {
     services: 'Services',
     projects: 'Projects',
     partners: 'Partners',
+    catalogues: 'Catalogues',
     contact: 'Contact',
     quote: 'Request a quote',
     menu: 'Main menu',
@@ -225,6 +251,24 @@ const en: Dictionary = {
     year: 'Year',
     scope: 'Scope',
     system: 'System',
+  },
+  catalogue: {
+    open: 'Open the catalogue',
+    prev: 'Previous page',
+    next: 'Next page',
+    first: 'First page',
+    last: 'Last page',
+    page: 'Page',
+    pageCount: (n: number) => `${n} pages`,
+    of: (a: number, b: number) => `${a} / ${b}`,
+    thumbnails: 'Pages',
+    hideThumbnails: 'Hide pages',
+    zoom: 'Enlarge',
+    close: 'Close',
+    download: 'Download PDF',
+    goToPage: 'Go to page',
+    keyboardHint: 'Use the arrow keys to turn pages.',
+    cover: 'Cover',
   },
   sections: {
     about: 'About us',

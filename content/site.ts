@@ -95,19 +95,21 @@ export const systems = [
 ]
 
 /**
- * Stands in for a spec table until the client supplies catalogue data. Written
- * as an offer rather than a note about what is missing.
+ * The series catalogue carries the real drawings, so this sends the reader
+ * straight to it and keeps writing to us as the second option.
  */
 export const specsPending = {
   tr: {
     title: 'Teknik doküman',
-    body: 'Kesit ölçüleri, yalıtım değerleri ve aksesuar listesi seri kataloğunda. Hangi detaya ihtiyacınız olduğunu yazın, ilgili dokümanı iletelim.',
-    cta: 'Teknik doküman isteyin',
+    body: 'Kesit ölçüleri, teknik çizimler ve aksesuar listeleri 2024 mimari sistemler kataloğunda. Sayfa sayfa okuyabilir ya da PDF olarak indirebilirsiniz.',
+    cta: 'Kataloğu aç',
+    ask: 'Ya da bize yazın →',
   },
   en: {
     title: 'Technical documentation',
-    body: 'Section dimensions, insulation values and the hardware schedule are in the series catalogue. Tell us which detail you need and we will send the document.',
-    cta: 'Request documentation',
+    body: 'Section dimensions, technical drawings and hardware schedules are in the 2024 architectural systems catalogue. Read it page by page or download the PDF.',
+    cta: 'Open the catalogue',
+    ask: 'Or write to us →',
   },
 }
 
