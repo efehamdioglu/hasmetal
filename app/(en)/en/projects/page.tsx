@@ -1,0 +1,16 @@
+import type { Metadata } from 'next'
+import { ProjectsPage } from '@/components/pages/projects-page'
+import { pageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = pageMetadata({
+  locale: 'en',
+  title: 'Projects | Aluminium framing and facades on 46 buildings',
+  description:
+    'Regnum Sky Tower, Hilton Garden Inn, the METU research centre, Şişli Municipality and more. Forty six reference projects in Ankara, İstanbul, Samsun, Bodrum, Adana, İzmir and Sivas.',
+  path: '/en/projects',
+  altPath: '/referanslar',
+})
+
+export default function Page() {
+  return <ProjectsPage locale="en" />
+}

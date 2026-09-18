@@ -1,0 +1,310 @@
+[
+  {
+    "name": "ADEN BALLIKPINARI",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2023/12/ADEN-BALLIKPINARI-4.jpg",
+    "width": 1282,
+    "height": 720
+  },
+  {
+    "name": "ARMA KULE",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2023/12/arma-kule-business-2.jpg",
+    "width": 1024,
+    "height": 844
+  },
+  {
+    "name": "BULVAR LOFT",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2023/12/BULVAR-LOFT.jpg",
+    "width": 1618,
+    "height": 1080
+  },
+  {
+    "name": "CEPA EVLERİ",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/1-2.jpg",
+    "width": 1402,
+    "height": 1080
+  },
+  {
+    "name": "FLORIUM",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/atayildiz_florium_01.webp",
+    "width": 1776,
+    "height": 1332
+  },
+  {
+    "name": "GÖLPARK ALPUKA",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/GOLPARK-ALPUKA.jpg",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "name": "HOLIDAY INN",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/holiday-inn-ankara-3815075007-2x1-1-scaled.jpg",
+    "width": 2560,
+    "height": 1280
+  },
+  {
+    "name": "KULE EVO",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/a213-2-.jpg",
+    "width": 1181,
+    "height": 786
+  },
+  {
+    "name": "METROMALL RESIDENCE",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/513a.jpg",
+    "width": 1200,
+    "height": 700
+  },
+  {
+    "name": "MIAVITA",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/miavita-beytepe_132811.jpg",
+    "width": 1920,
+    "height": 1081
+  },
+  {
+    "name": "MİRA KULE",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/Mira-Ofis-Beytepe.webp",
+    "width": 1920,
+    "height": 1077
+  },
+  {
+    "name": "NAZENDE",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/Nazende.jpg",
+    "width": 1500,
+    "height": 980
+  },
+  {
+    "name": "ODTÜ ARAŞTIRMA MERKEZİ",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/ODTU-4-1.jpeg",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "name": "OTONOMİ",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/0210599001381499415.jpg",
+    "width": 1366,
+    "height": 768
+  },
+  {
+    "name": "PARK HAYAT",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/park-hayat-incek_105612.jpg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "name": "REGNUM SKY TOWER",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/Regnum-Sky-Tower-2.jpg",
+    "width": 1052,
+    "height": 800
+  },
+  {
+    "name": "VIA GREEN",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/59edeae65bc34360110183.jpg",
+    "width": 1170,
+    "height": 780
+  },
+  {
+    "name": "ATIYE RESIDENCE",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/resim_2024-05-14_102223899.png",
+    "width": 1081,
+    "height": 739
+  },
+  {
+    "name": "ELİT MANZARA",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2023/12/ELIT-MANZARA.jpg",
+    "width": 1376,
+    "height": 714
+  },
+  {
+    "name": "ARTE AREN",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/59fb0d60073f6556371697.jpg",
+    "width": 740,
+    "height": 417
+  },
+  {
+    "name": "ÇENGELKÖY PARK EVLERİ",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/7.jpg",
+    "width": 1500,
+    "height": 1000
+  },
+  {
+    "name": "KAYA PALAS",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/KAYA-PALAS-CADDE-BOSTAN-FENERBAHCE-03-1024x662-1.jpg",
+    "width": 1024,
+    "height": 662
+  },
+  {
+    "name": "KVCK BEY KONAKLARI",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/05/7c0a55c3082e8d703c62563e3f466e19.jpg",
+    "width": 736,
+    "height": 373
+  },
+  {
+    "name": "METSAN NEXUS KARTAL",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/2c6b8951-300c-475c-98f8-809ea8cd2973.jpg",
+    "width": 700,
+    "height": 466
+  },
+  {
+    "name": "MVK WORK",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/UVcwNjlhTzFONGRQY0lwWjVyRitvRVBZUlMzN3lHakhRaFd2TkVlVFVCUEFGWTJhZ1paTmtSWDQxZW5hdUpMcFVlWGt1MElrUTBIa3gxYklJdTdXeVE9PQ.jpg",
+    "width": 1024,
+    "height": 493
+  },
+  {
+    "name": "QUENT İSTİNYE",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/qent-istinye-gallery-2-1614297735.jpg",
+    "width": 1536,
+    "height": 938
+  },
+  {
+    "name": "SELENIUM RETRO",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/Selenium-Retro-9-min4.jpg",
+    "width": 1920,
+    "height": 1936
+  },
+  {
+    "name": "ŞİŞLİ BELEDİYESİ",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/3cbe1b6ce556b8f702091fca7c39074e-1.jpg",
+    "width": 2000,
+    "height": 1262
+  },
+  {
+    "name": "TERAS LİDO",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/608246920144744293.jpg",
+    "width": 1945,
+    "height": 1000
+  },
+  {
+    "name": "THE İSTANBUL",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/veliefendi2-thegem-gallery-justified.jpg",
+    "width": 660,
+    "height": 600
+  },
+  {
+    "name": "TRENDİST ATAŞEHİR",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/TRENDIST-ATASEHIR-PROJESI-K-7.jpg",
+    "width": 2001,
+    "height": 1335
+  },
+  {
+    "name": "ZİVERBEY 34",
+    "city": "İstanbul",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/ziverbey-34-dis1.jpg",
+    "width": 1024,
+    "height": 570
+  },
+  {
+    "name": "BORKONUT +",
+    "city": "Samsun",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/xl-borkonut-plus-1-A4Z8.jpg",
+    "width": 750,
+    "height": 579
+  },
+  {
+    "name": "BORKONUT NİŞ",
+    "city": "Samsun",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/borkonut-center-projesi-ile-samsuna-yeni-nesil-ofis-yasami-geliyor-projesi-177364-1510763664.jpeg",
+    "width": 1920,
+    "height": 1080
+  },
+  {
+    "name": "HILTON GARDEN INN",
+    "city": "Sivas",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/Hilton-Garden-Inn-Sivas-Exterior.jpg",
+    "width": 1999,
+    "height": 1332
+  },
+  {
+    "name": "LA TERAZZA",
+    "city": "Bodrum",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/la-terraza-projesi-1.jpg",
+    "width": 1200,
+    "height": 810
+  },
+  {
+    "name": "NU TERAS EVLERİ",
+    "city": "Samsun",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/nu-teras-2.jpg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "name": "ORANIO HOMES",
+    "city": "Bodrum - Muğla",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/oranio-homes-bodrum.jpg",
+    "width": 705,
+    "height": 475
+  },
+  {
+    "name": "SAHİL KONAKLARI",
+    "city": "Samsun",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/slider1.jpg",
+    "width": 1920,
+    "height": 800
+  },
+  {
+    "name": "THE ONE RESIDANCE",
+    "city": "Adana",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/2022-03-31-141931-one-residence-1454624065-final-rezidances-1.jpg",
+    "width": 1920,
+    "height": 1279
+  },
+  {
+    "name": "TWIN TOWERS",
+    "city": "Samsun",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/xl-twin-towers-samsun-2-ABQU.png",
+    "width": 800,
+    "height": 600
+  },
+  {
+    "name": "PORTMARİN",
+    "city": "İzmir",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/katal-portmarin-residence-izmir.jpg",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "name": "AVEND ÇAYYOLU",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/AVEND-CAYYOLU.jpg",
+    "width": 700,
+    "height": 466
+  },
+  {
+    "name": "SİSA KULE BEYKENT",
+    "city": "Ankara",
+    "src": "https://hasmetal.com.tr/wp-content/uploads/2024/10/SISA-KULE-BEYKENT.jpg",
+    "width": 700,
+    "height": 466
+  }
+]

@@ -1,0 +1,594 @@
+{
+  "7": {
+    "src": "/images/7.webp",
+    "width": 1500,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoMAAgAA4BaJagCdH8AGBwierjAAP6ZgLk5LEnvCrhlVBOX5AkL5R7t3LSkdEf88lmZHgQBfjO7phhURgNvhPJZUxOavUrgFDxeZBYAAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/7.jpg",
+    "alt": ""
+  },
+  "5454": {
+    "src": "/images/5454.webp",
+    "width": 2400,
+    "height": 2112,
+    "blurDataURL": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoMAAsAA4BaJagCdAECpn7+6WswAP4Hg9fJb9psOQNlXZYxtfqVAYfnedl9Nn2WIGYr9gWplDobEKpnPPqAsxk34J9lTAK81KLkN3exvnIgAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/5454.jpg",
+    "alt": ""
+  },
+  "calisma-yuzeyi-1-300x": {
+    "src": "/images/calisma-yuzeyi-1-300x.webp",
+    "width": 506,
+    "height": 325,
+    "blurDataURL": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4WAoAAAAQAAAACwAABwAAQUxQSFAAAAABcBPbturc6vvgXzEJ+B2V/Mtgx8zMYONGQRREQQzdPgoiIqCFiNcNIo4B3kT0+xLR509MvDiMGpXX61hClh+acvc0y1sNEH3XYyUjkuxEAVZQOCBMAAAAEAIAnQEqDAAIAAOAWiWQAuwGKv8gAwZKIADd0AeXgee7Kbwm3gQd6aos5CeVwRRIcweGWS0I2ewhjl+TLVgvj0RlI+Jq8Vz3c24AAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/Calisma-Yuzeyi-1@300x.png",
+    "alt": ""
+  },
+  "has-metal-yeni-logo": {
+    "src": "/images/has-metal-yeni-logo.webp",
+    "width": 478,
+    "height": 440,
+    "blurDataURL": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4WAoAAAAQAAAACwAACgAAQUxQSEwAAAABBke1bavNl5GIYEYHzJwyOGgtsRMexU2mqYPbiJgATL/8AufTF1gRHEbg+RiB4y/WA3C/DcCW8Gbo08E+rkuGKO46hVP9pW5LkckBVlA4IFQAAADwAQCdASoMAAsAA4BaJZAC7AYrS45Lc0AA/XShApNKCI/+1AV3hMCBaXcydUsuYlHMpsS2RZrAhB8Ra0fbebs4CnxZHg6HtHN0A/S39i9cq89AAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/03/has-metal-yeni-logo.png",
+    "alt": ""
+  },
+  "surme-plan-copy-kopyasdsdf": {
+    "src": "/images/surme-plan-copy-kopyasdsdf.webp",
+    "width": 1080,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoMAAwAA4BaJZwAAp1Rj9nrgAAA/veB+KjAYU2u299J6LwhODyct3RIYudAx7qyYPyw07y4NAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/surme-plan-copy-kopyasdsdf.jpg",
+    "alt": ""
+  },
+  "surme-plan-copysdadsa-kopya": {
+    "src": "/images/surme-plan-copysdadsa-kopya.webp",
+    "width": 1080,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMAAwAA4BaJZwAD4us+QCQCAAA/umw7NE3V70n85RV86JPe2krzPvU9gSDx9m8BfB4R2f2/6/CMVqia5PcwifI4AA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/surme-plan-copysdadsa-kopya.jpg",
+    "alt": ""
+  },
+  "has-web-kopya": {
+    "src": "/images/has-web-kopya.webp",
+    "width": 1080,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoMAAwAA4BaJaQAAueEZ5EIAAD+9o2+YZQ3DCHOv8UFKEsKvmn8OQeMvEAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/has-web-kopya.jpg",
+    "alt": ""
+  },
+  "surme-plan-copy-kopya": {
+    "src": "/images/surme-plan-copy-kopya.webp",
+    "width": 1080,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABQAgCdASoMAAwAA4BaJYwCdAYuvwn6dBERYAAA/cWgrHkeQhTrZcMmz+Eo4rzWuX35aO8/EqEtkSJkX5rwkVcOrNoMp6/YUeDv+AiNgskA5gAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/surme-plan-copy-kopya.jpg",
+    "alt": ""
+  },
+  "2c6b8951-300c-475c-98f8-809ea8cd2973": {
+    "src": "/images/2c6b8951-300c-475c-98f8-809ea8cd2973.webp",
+    "width": 700,
+    "height": 466,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMAAgAA4BaJZACdAEOwVrysAD+28rITgxfhkiq0NVLplC4Ktt3V8ziQ5uk5N5PGAUAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/2c6b8951-300c-475c-98f8-809ea8cd2973.jpg",
+    "alt": ""
+  },
+  "hm-commerce-hotel": {
+    "src": "/images/hm-commerce-hotel.webp",
+    "width": 700,
+    "height": 487,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAgAA4BaJagCdGuAAX4LsPAA/I1bSkAZ0xcDZT0OxahSRni3ZDPpuRVZ510PgJnSCbL4jgDhRd6gAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/hm-commerce-hotel.jpg",
+    "alt": ""
+  },
+  "dfsdfs": {
+    "src": "/images/dfsdfs.webp",
+    "width": 2048,
+    "height": 1365,
+    "blurDataURL": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4WAoAAAAQAAAACwAABwAAQUxQSEQAAAABYFpr25KXwwIO2QegES1Z001Irp3KITEHjc5QPkJETAB+5DzyyS1E/kZq9yU/twyAEfLzdEyWyeOqrz0Z4Zny8Ja4AFZQOCBCAAAA8AEAnQEqDAAIAAOAWiWkAA+Dz6oG3jfAAM3OuZifbMgYCfGGv/1/6h4ycKJ88efsvXcOpkqnMBRZ0L43S74xmAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/dfsdfs.png",
+    "alt": ""
+  },
+  "sisa-kule-beykent": {
+    "src": "/images/sisa-kule-beykent.webp",
+    "width": 700,
+    "height": 466,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoMAAgAA4BaJYwCdAD1WJCCIAD+9I59i3kN3sbFko2u1uTbG9C2FFEVJeko+vgr1rRagxoS97IFfAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/SISA-KULE-BEYKENT.jpg",
+    "alt": ""
+  },
+  "avend-cayyolu": {
+    "src": "/images/avend-cayyolu.webp",
+    "width": 700,
+    "height": 466,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoMAAgAA4BaJZwAAlxbw/7UAAD+3aj4JyiN8rJcHNK7M3W9lTQFEIVuOurjGKMCqa3rwAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/AVEND-CAYYOLU.jpg",
+    "alt": ""
+  },
+  "tub1": {
+    "src": "/images/tub1.webp",
+    "width": 2400,
+    "height": 2400,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAwAA4BaJZQCw7EfUoneJQAAAP72s1d1Q9BVHtZgWq59yRVUY9I8ZVIrjOQtX194jZ+QyudcHTtTfhvcNjW0/0N1NYFoAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/tub1.jpg",
+    "alt": ""
+  },
+  "downloader": {
+    "src": "/images/downloader.webp",
+    "width": 2048,
+    "height": 1250,
+    "blurDataURL": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSFUAAAAAAAAAAAM9fz1MBgAAAAA9lb325qN70KgBAKmpNOmqCwCc9BoABv9Pd/8wAFT/gQAAAGQei/9ERvThCwAAAAAAEQ4moPI7AAAAAAAAAAAAAA4AAAAAAFZQOCBIAAAA0AEAnQEqDAAHAAOAWiWkAA+OTPfR4gAA+C0Fs0Fan5kLXn9eRNLJV70c6yhujuKV/WJPDROS0EpMZzf7c9jkf2F3wTUaAAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/Downloader.png",
+    "alt": ""
+  },
+  "katal-portmarin-residence-izmir": {
+    "src": "/images/katal-portmarin-residence-izmir.webp",
+    "width": 1200,
+    "height": 675,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMAAcAA4BaJZQCdADhZkI1KAD+muuL/vO+1eZzZuB5Uy4GyL34kM80l0fjd4JtVn4IAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/katal-portmarin-residence-izmir.jpg",
+    "alt": ""
+  },
+  "slider1": {
+    "src": "/images/slider1.webp",
+    "width": 1920,
+    "height": 800,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoMAAUAA4BaJZgCdAEU45cyAAD9/T2x9d0JqiP/mrvIA+DarMhXdm0gZb3r4BRzEzjsKL4rwFFkZeQUgAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/slider1.jpg",
+    "alt": ""
+  },
+  "oranio-homes-bodrum": {
+    "src": "/images/oranio-homes-bodrum.webp",
+    "width": 705,
+    "height": 475,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoMAAgAA4BaJYgCdADZjVEuAAD9UfqnX9PS4fSpZqbE/gvJJsatEgkbPGcLALWOppUwb89gsO4x2Ot4zVDotHQA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/oranio-homes-bodrum.jpg",
+    "alt": ""
+  },
+  "hilton-garden-inn-sivas-exterior": {
+    "src": "/images/hilton-garden-inn-sivas-exterior.webp",
+    "width": 1999,
+    "height": 1332,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAgAA4BaJbACdADyoGnUAADdkP2DRaR0fOC9wnviXgz93xFAXYr6VQWOrLh8NKFDtTno5TIAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/Hilton-Garden-Inn-Sivas-Exterior.jpg",
+    "alt": ""
+  },
+  "tub3": {
+    "src": "/images/tub3.webp",
+    "width": 2400,
+    "height": 2400,
+    "blurDataURL": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAAAwAQCdASoMAAwAA4BaJQAAgAAA/vQrd0EbnpMjGn86y+a//k0tMvw2BKzIAAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/tub3.jpg",
+    "alt": ""
+  },
+  "la-terraza-projesi-1": {
+    "src": "/images/la-terraza-projesi-1.webp",
+    "width": 1200,
+    "height": 810,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAgAA4BaJYwCw7EPECuzgIAA/NlvF3tKDTGsryElZZvy8MkWXAm9t7ZeQEV6sDMpJjSaHKJTPnk6AAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/la-terraza-projesi-1.jpg",
+    "alt": ""
+  },
+  "nu-teras-2": {
+    "src": "/images/nu-teras-2.webp",
+    "width": 1200,
+    "height": 800,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAgAA4BaJYwCdAD0YQO9idAA/dJzsLXw6CbfNPE/2STfdMw6kqBB2SQsQwcA2avYGCSFm067btuGuAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/nu-teras-2.jpg",
+    "alt": ""
+  },
+  "2022-03-31-141931-one-residence-1454624065-final-rezidances-": {
+    "src": "/images/2022-03-31-141931-one-residence-1454624065-final-rezidances-.webp",
+    "width": 1920,
+    "height": 1279,
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAwAgCdASoMAAgAA4BaJZQCdIExGBu5ly+hgAD8j93a/kpML1FDG/VHz3p96bzUtKaAUgk0yxNXvBHRKKMDNlQQuAAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/2022-03-31-141931-one-residence-1454624065-final-rezidances-1.jpg",
+    "alt": ""
+  },
+  "xl-twin-towers-samsun-2-abqu": {
+    "src": "/images/xl-twin-towers-samsun-2-abqu.webp",
+    "width": 800,
+    "height": 600,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoMAAkAA4BaJbACdEf/gY7IHUAAAP7Jd1P0xT0Ndwz0EOg9piX8Q2Y0Jnij3OdADSR5Rj6TAnalHETS7NSV6MIfnQBi+JeAAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/xl-twin-towers-samsun-2-ABQU.png",
+    "alt": ""
+  },
+  "xl-borkonut-plus-1-a4z8": {
+    "src": "/images/xl-borkonut-plus-1-a4z8.webp",
+    "width": 750,
+    "height": 579,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoMAAkAA4BaJagCdAD5jG3N0SAA/vI8Bgob6QIraQddq4k3sWOQslkB2zrJm7XIcKwTeOF+DCdrYVt+D8ZO0RZ+cREBqCAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/xl-borkonut-plus-1-A4Z8.jpg",
+    "alt": ""
+  },
+  "the-green-park-sivas-exterior": {
+    "src": "/images/the-green-park-sivas-exterior.webp",
+    "width": 1999,
+    "height": 1332,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoMAAgAA4BaJagCdGuAAoaTx4sAAP66OP/HnG1akrv2tLm7HsL5AUP5Qdiy6jarV6aVnelPLMWoAAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/The-Green-Park-Sivas-Exterior.jpg",
+    "alt": ""
+  },
+  "ziverbey-34-dis1": {
+    "src": "/images/ziverbey-34-dis1.webp",
+    "width": 1024,
+    "height": 570,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoMAAcAA4BaJYwAAwbf57eAAP71JGHEiZ6m2enojpPwK6ObuIWnplDnlze79aWizKEGLYCFf6XX2AAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/ziverbey-34-dis1.jpg",
+    "alt": ""
+  },
+  "veliefendi2-thegem-gallery-justified": {
+    "src": "/images/veliefendi2-thegem-gallery-justified.webp",
+    "width": 660,
+    "height": 600,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoMAAsAA4BaJQBWABuhwgBjsAD5WyX+cm745OvLlXe9LVeX4z14K5sgdyaYtD8D5fI8q1+tipmfg1E6DLbm4RhVB+Xr5LSphKCv9QAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/veliefendi2-thegem-gallery-justified.jpg",
+    "alt": ""
+  },
+  "borkonut-center-projesi-ile-samsuna-yeni-nesil-ofis-yasami-g": {
+    "src": "/images/borkonut-center-projesi-ile-samsuna-yeni-nesil-ofis-yasami-g.webp",
+    "width": 1920,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoMAAcAA4BaJQBOgCPTGlqs+AAA/ltNrrZZGtPWApcCOkXYfa/PSrybgfN2zsBE33ztdn3POJEyYbYoAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/borkonut-center-projesi-ile-samsuna-yeni-nesil-ofis-yasami-geliyor-projesi-177364-1510763664.jpeg",
+    "alt": ""
+  },
+  "608246920144744293": {
+    "src": "/images/608246920144744293.webp",
+    "width": 1945,
+    "height": 1000,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACQAQCdASoMAAYAA4BaJZQAAme+UwAA/qnJ/lyl56rJnZNYYBoT04/g8dxrdkauHxexAAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/608246920144744293.jpg",
+    "alt": ""
+  },
+  "trendist-atasehir-projesi-k-7": {
+    "src": "/images/trendist-atasehir-projesi-k-7.webp",
+    "width": 2001,
+    "height": 1335,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAABwAQCdASoMAAgAA4BaJQAAK//OIAD+0Ms9mHh7Qd1+8atM68Oud4zWyCxKwM4zTESXfZ53DoNE/S3AAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/TRENDIST-ATASEHIR-PROJESI-K-7.jpg",
+    "alt": ""
+  },
+  "qent-istinye-gallery-2-1614297735": {
+    "src": "/images/qent-istinye-gallery-2-1614297735.webp",
+    "width": 1536,
+    "height": 938,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoMAAcAA4BaJZwAAlKMA4gAAP7m+oTQlaVn73CerRXSuJGSPfjnh64LP0ZKXkpzml7YWC1wrNKfQOi/yzkXAQhRAQAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/qent-istinye-gallery-2-1614297735.jpg",
+    "alt": ""
+  },
+  "3cbe1b6ce556b8f702091fca7c39074e-1": {
+    "src": "/images/3cbe1b6ce556b8f702091fca7c39074e-1.webp",
+    "width": 2000,
+    "height": 1262,
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoMAAgAA4BaJQBOgCHUr6wwAMtEHlMvMQmj9po5r3sjQ3D6v+FuUBBTcxGA8AAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/3cbe1b6ce556b8f702091fca7c39074e-1.jpg",
+    "alt": ""
+  },
+  "uvcwnjlhtzfongrqy0lwwjvyritvrvbzulmzn3lhakhrafd2tkvlvfvcuefg": {
+    "src": "/images/uvcwnjlhtzfongrqy0lwwjvyritvrvbzulmzn3lhakhrafd2tkvlvfvcuefg.webp",
+    "width": 1024,
+    "height": 493,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoMAAYAA4BaJQBOgBuJA3sH6AD30y86+sq/LWYv7FkOeX1lptzBFPvBZlofC5fiLN6gAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/UVcwNjlhTzFONGRQY0lwWjVyRitvRVBZUlMzN3lHakhRaFd2TkVlVFVCUEFGWTJhZ1paTmtSWDQxZW5hdUpMcFVlWGt1MElrUTBIa3gxYklJdTdXeVE9PQ.jpg",
+    "alt": ""
+  },
+  "golpark-alpuka": {
+    "src": "/images/golpark-alpuka.webp",
+    "width": 1600,
+    "height": 1067,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoMAAgAA4BaJQBOgBwzOdjvNAAA/moA8sHUWpcKBHkb2aZ5NxcFFodRTR/x+IN8RV580buBTTbF3UZf62gL3c/waptAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/GOLPARK-ALPUKA.jpg",
+    "alt": ""
+  },
+  "59fb0d60073f6556371697": {
+    "src": "/images/59fb0d60073f6556371697.webp",
+    "width": 740,
+    "height": 417,
+    "blurDataURL": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoMAAcAA4BaJQBOgCL9Obij7AAA/u3fN1zXb/FHZcP3tXdWkHUUiv94FN/E6RiZPf4yZfHA4vfxICFN33Z2rEAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/59fb0d60073f6556371697.jpg",
+    "alt": ""
+  },
+  "55-t-golge": {
+    "src": "/images/55-t-golge.webp",
+    "width": 2400,
+    "height": 3396,
+    "blurDataURL": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4WAoAAAAQAAAACwAAEAAAQUxQSGYAAAABcFtr29K8SMUalLRUPgJ0TMIC1A41ce9zsoDXqXUAmyC4ThARE4Aes2urguYm90uZ/TYZbV72SnwQRtkzCQC17JGEgFwVgZDK7snvtFmJJbekGJcM/oVtCYR9kiROGQj9uuMrWgVWUDggTgAAAPACAJ0BKgwAEQA+7WKqTamlpCIwCAEwHYlpAAAaw4QAAPnYu7yjPDsxzmlHQwh96BNpZUmJZ75MAX7xFI4fosyExEfXn06V2c+dkgAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/55-t-golge.png",
+    "alt": ""
+  },
+  "atayildiz-florium-01": {
+    "src": "/images/atayildiz-florium-01.webp",
+    "width": 1776,
+    "height": 1332,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoMAAkAA4BaJQBOgB+FonbQqgAA/GgkdY8EkeEWP1cjsWuS/Ab2qrEMt7juOvnRTt7MQwgThIT6leKtkqDCsJNNFT4QAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/atayildiz_florium_01.webp",
+    "alt": ""
+  },
+  "7c0a55c3082e8d703c62563e3f466e19": {
+    "src": "/images/7c0a55c3082e8d703c62563e3f466e19.webp",
+    "width": 736,
+    "height": 373,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAYAA4BaJZAAAvd9yKyFwAD+x4PuB2EaGPy/5kPiEFw3xwykWywdgNaADpjl3EO+ndh2QEgAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/7c0a55c3082e8d703c62563e3f466e19.jpg",
+    "alt": ""
+  },
+  "kaya-palas-cadde-bostan-fenerbahce-03-1024x662-1": {
+    "src": "/images/kaya-palas-cadde-bostan-fenerbahce-03-1024x662-1.webp",
+    "width": 1024,
+    "height": 662,
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAQCdASoMAAgAA4BaJZwAAiHi2eAA9maBWF8/dP0rl/PeyBTAFIjtNm/n0UxR7g4nrWsmNeV3WFt425jx5KXG/cbnglVIoAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/KAYA-PALAS-CADDE-BOSTAN-FENERBAHCE-03-1024x662-1.jpg",
+    "alt": ""
+  },
+  "1-2": {
+    "src": "/images/1-2.webp",
+    "width": 1402,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMAAkAA4BaJZwAAvh6xhARHwAA/qMU45ahMT1q5qzyjGUDYFb8svbcqFp0GSGYtdTaxfdFjruwbvVzAIAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/1-2.jpg",
+    "alt": ""
+  },
+  "59edeae65bc34360110183": {
+    "src": "/images/59edeae65bc34360110183.webp",
+    "width": 1170,
+    "height": 780,
+    "blurDataURL": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAQCdASoMAAgAA4BaJQBOgBtfGIAA9rjerh7ZX1vGiF+DlBiS6bLhE6j3TklfB9c0bezNtdiT+0BrFjxXTYPgAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/59edeae65bc34360110183.jpg",
+    "alt": ""
+  },
+  "selenium-retro-9-min4": {
+    "src": "/images/selenium-retro-9-min4.webp",
+    "width": 1920,
+    "height": 1936,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwAgCdASoMAAwAA4BaJaACdAEfn7cxxVfrQADdmTX6/7oyGXe5Vp+NDfungkki+edRzGiSBa5tXGN43W9P+58qaWfyth9jzsAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/Selenium-Retro-9-min4.jpg",
+    "alt": ""
+  },
+  "resim-2024-05-14-102223899": {
+    "src": "/images/resim-2024-05-14-102223899.webp",
+    "width": 1081,
+    "height": 739,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAgAA4BaJQBOgBhzz2l47AD+iJe0jHfZvdEF3Mlx8YIliKr4S4oWEC6mzPVHNAhMtNwN8XAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/resim_2024-05-14_102223899.png",
+    "alt": ""
+  },
+  "park-hayat-incek-105612": {
+    "src": "/images/park-hayat-incek-105612.webp",
+    "width": 1200,
+    "height": 800,
+    "blurDataURL": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoMAAgAA4BaJQBOgCLHtloBIxAA9r+JbgRvA51Q8BOwchh89d7FyN6rWHHKsJTuK8qa4S6lu2wbzlPgn355a1fsAYNAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/park-hayat-incek_105612.jpg",
+    "alt": ""
+  },
+  "regnum-sky-tower-2": {
+    "src": "/images/regnum-sky-tower-2.webp",
+    "width": 1052,
+    "height": 800,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAQCdASoMAAkAA4BaJbACdADszVMAAP70th5KzOUlf7JxbJvu00suKK9Foz0X5/ngQfDPJSMnc47l4xSZ3lSZSMvvkmxQljlzXV+83AAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/Regnum-Sky-Tower-2.jpg",
+    "alt": ""
+  },
+  "0210599001381499415": {
+    "src": "/images/0210599001381499415.webp",
+    "width": 1366,
+    "height": 768,
+    "blurDataURL": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoMAAcAA4BaJZwAAlKMBfwAAP7cijR/z5AR4FRr/0wF9QFjQQTQNBKhhuGm8n7QDTIgAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/0210599001381499415.jpg",
+    "alt": ""
+  },
+  "nazende": {
+    "src": "/images/nazende.webp",
+    "width": 1500,
+    "height": 980,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoMAAgAA4BaJQBOgBuNB9rFlQAA/rXcvNTl+Lc4xWhcYPTPd1W8zcFuLMx/dbAgGmgavRRwAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/Nazende.jpg",
+    "alt": ""
+  },
+  "odtu-4-1": {
+    "src": "/images/odtu-4-1.webp",
+    "width": 1600,
+    "height": 1200,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAkAA4BaJZQC/ODdrI1zAAD+8tze9CNBo0x91IUP2wjSJQv0Xt0/78GX1Pxsq1ywgBxD/GwAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/ODTU-4-1.jpeg",
+    "alt": ""
+  },
+  "miavita-beytepe-132811": {
+    "src": "/images/miavita-beytepe-132811.webp",
+    "width": 1920,
+    "height": 1081,
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoMAAcAA4BaJagCdADcryxdHAAA/urUfpvFKPHAe8e9U2ixvPkEYJ4sJ8n+IbhWQxRfKDlmjLA4Ikl4qKR+g5pJAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/miavita-beytepe_132811.jpg",
+    "alt": ""
+  },
+  "mira-ofis-beytepe": {
+    "src": "/images/mira-ofis-beytepe.webp",
+    "width": 1920,
+    "height": 1077,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAwAgCdASoMAAcAA4BaJbACdGuAAoeM96BsgAD+6PAVBTdWM1CTRGwjh/c4G79cnYU/3iV0H6jowAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/Mira-Ofis-Beytepe.webp",
+    "alt": ""
+  },
+  "513a": {
+    "src": "/images/513a.webp",
+    "width": 1200,
+    "height": 700,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADwAQCdASoMAAcAA4BaJQBOgCPbBOgBGBAA/gcuBNpvBxNuw/d3Rl2en+arGZwABL01LZFhRuoKoYAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/513a.jpg",
+    "alt": ""
+  },
+  "kahe": {
+    "src": "/images/kahe.webp",
+    "width": 1920,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSD0AAAABYFpr25L3PySnuZPYwrPDBm4LkMisQWVOGSEiJgAfif7G303RlSWPBlAexTMt9yUCyM64TYO2kwBQAsGfAFZQOCAYAAAAMAEAnQEqDAAHAAOAWiWkAANwAP71CAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/kahe.png",
+    "alt": ""
+  },
+  "gu": {
+    "src": "/images/gu.webp",
+    "width": 1920,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSFUAAAAAAAAALR4ADBESCwAAAACT3OgzZY+YXAAAAAjwSqd/w4+YXAAAAAPmXqqtfquyVgAAAAA/xLIdELSwDAAAAAAyNC8pIjIrFwAAAAAcGxgVFBgdDQAAAFZQOCAYAAAAMAEAnQEqDAAHAAOAWiWkAANwAP71CAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/GU.png",
+    "alt": ""
+  },
+  "giesse": {
+    "src": "/images/giesse.webp",
+    "width": 1920,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSDYAAAABYFtbe5KvSqdVAtRWunvNCC4zsAe7sGRGiIiEuTPR1p2SMFXA+D/ztzzHSwES8z6osyyVMAdWUDggGAAAADABAJ0BKgwABwADgFolpAADcAD+9QgAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/GIESSE.png",
+    "alt": ""
+  },
+  "holiday-inn-ankara-3815075007-2x1-1-scaled": {
+    "src": "/images/holiday-inn-ankara-3815075007-2x1-1-scaled.webp",
+    "width": 2400,
+    "height": 1200,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAYAA4BaJagCdADbINJIAAD+3LaU2+JxU9ZlSvWoKwm3wCShMQEacSVP4MZ3Yp5ET3LZUxkAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/holiday-inn-ankara-3815075007-2x1-1-scaled.jpg",
+    "alt": ""
+  },
+  "zeever-2x-8": {
+    "src": "/images/zeever-2x-8.webp",
+    "width": 823,
+    "height": 171,
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4WAoAAAAQAAAACwAAAQAAQUxQSBkAAAAAi6JubV57Z0ZahVGExLLMxrzTh9+R4KVjAFZQOCA0AAAAsAEAnQEqDAACAAOAWiWcAAKvmZ6NUADLHC/5356HpJD+WiIIuZwGJY4aosULjGm23FAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/zeever@2x-8.webp",
+    "alt": ""
+  },
+  "assa-abloy": {
+    "src": "/images/assa-abloy.webp",
+    "width": 1920,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSCwAAAABYBPbVqNPMgAKchUrOkp0oIbNBqLfnVUQEQn/iPPY2nv1kQG4Kl7JUh2D71ZQOCAYAAAAMAEAnQEqDAAHAAOAWiWkAANwAP71CAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/assa-abloy.png",
+    "alt": ""
+  },
+  "knees-2x-8": {
+    "src": "/images/knees-2x-8.webp",
+    "width": 677,
+    "height": 172,
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4WAoAAAAQAAAACwAAAgAAQUxQSCUAAAAAP2w5OQAAXFc8JVBNiEs7SCsYX0g9DTE6OWgHagAAXVc8JU5TAFZQOCAkAAAAcAEAnQEqDAADAAOAWiWMAnQBQAAA/us7NOLDTHiYmTJ+iMAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/knees@2x-8.webp",
+    "alt": ""
+  },
+  "vazaza-2x-8": {
+    "src": "/images/vazaza-2x-8.webp",
+    "width": 857,
+    "height": 172,
+    "blurDataURL": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4WAoAAAAQAAAACwAAAQAAQUxQSBkAAAAApERCUl5tVkdSbl5iUYpGY72Pg227XY+pAFZQOCAeAAAAUAEAnQEqDAACAAOAWiWMAAQAAAD+7DQV0X9cAAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/vazaza@2x-8.webp",
+    "alt": ""
+  },
+  "xtreme-2x-8": {
+    "src": "/images/xtreme-2x-8.webp",
+    "width": 1073,
+    "height": 170,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4WAoAAAAQAAAACwAAAQAAQUxQSBkAAAAAhnKribOZVjKbVqmxhG11Y6CQUTJ4pp+qAFZQOCAgAAAAUAEAnQEqDAACAAOAWiWUAAQAAAD+7DvfdBAVWlmAAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/xtreme@2x-8.webp",
+    "alt": ""
+  },
+  "financio-2x-8": {
+    "src": "/images/financio-2x-8.webp",
+    "width": 1180,
+    "height": 266,
+    "blurDataURL": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4WAoAAAAQAAAACwAAAgAAQUxQSCUAAAAAAERHESgCAAAAAA0AV5ZzPEE+PlFTOz9OiqBDIR8lST81ODNIAFZQOCAiAAAAUAEAnQEqDAADAAOAWiUAToAoAAD+6tsYA4JCBBERhnWAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/financio@2x-8.webp",
+    "alt": ""
+  },
+  "kale": {
+    "src": "/images/kale.webp",
+    "width": 1920,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSDMAAAABYFTbtpI3/yNXPAIVKEEBl5FH8ChkZMb6ESJiAsB9uOEf73dMT1uMQw6Q7akhieIRAvcAVlA4ICwAAAAwAQCdASoMAAcAA4BaJZQAA3AA/vMj/ZL0wsMknWUYLkOxE26Y9S+GWsSAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/kale.png",
+    "alt": ""
+  },
+  "resim-2023-12-27-132002460": {
+    "src": "/images/resim-2023-12-27-132002460.webp",
+    "width": 478,
+    "height": 296,
+    "blurDataURL": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSEEAAAAFcFzbttJc3N1hSgFWAYxokB6YUohDE8wsnlSQCiIi8OKADjnw5v+0ccCIBHh7mUQHbSnQv/3cqmiN60JNGsu7AQBWUDggTgAAAPABAJ0BKgwABwADgFolmALsAQMfRzfjgAD9sxxQ1K0JZReJHOo7p11OeKx7lVkJfX0j4nPDTIPEiLnwmHD0ZZ9B/7pQR+1QOOuQmAAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/resim_2023-12-27_132002460.png",
+    "alt": ""
+  },
+  "original-6158124280e4306c4e352c88-6158155fdcc92": {
+    "src": "/images/original-6158124280e4306c4e352c88-6158155fdcc92.webp",
+    "width": 640,
+    "height": 360,
+    "blurDataURL": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAAAQAgCdASoMAAcAA4BaJYwC7AEfbSBOgPnMAP6bHvSGofSFK3cugA7+LuLZSXvwW97M6Nk7EjzYAAAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/original_6158124280e4306c4e352c88_6158155fdcc92.webp",
+    "alt": ""
+  },
+  "siegenia-logo": {
+    "src": "/images/siegenia-logo.webp",
+    "width": 2400,
+    "height": 1350,
+    "blurDataURL": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSDkAAAABYBoAYJJdsWhocndpcg8XEIlklzO8ctlOiIgEzPvxDmv7d+fX9GWW1F5RRWFGIxO7UFEEGSJiAmYAVlA4IDQAAADQAQCdASoMAAcAA4BaJaQAAud1gWOQAADJd9vsdyxvhApw+V1T5k/zEsT7K46FvMnCkxAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/12/Siegenia-logo.png",
+    "alt": ""
+  },
+  "aden-ballikpinari-4": {
+    "src": "/images/aden-ballikpinari-4.webp",
+    "width": 1282,
+    "height": 720,
+    "blurDataURL": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoMAAcAA4BaJYwCdAEe2OZIsh8AAPqL59vy+Fc+dyqMJa1i2ly/w/8k5zFPklsoSgvlbAagcWQccwAA",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/ADEN-BALLIKPINARI-4.jpg",
+    "alt": ""
+  },
+  "arma-kule-business-2": {
+    "src": "/images/arma-kule-business-2.webp",
+    "width": 1024,
+    "height": 844,
+    "blurDataURL": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoMAAoAA4BaJQBOgB6Sx4am8AD+0WwixojkLtsvm8HEH6A9camC1xLI0bSgtEu2+kxH3HNf2/AAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/arma-kule-business-2.jpg",
+    "alt": ""
+  },
+  "elit-manzara": {
+    "src": "/images/elit-manzara.webp",
+    "width": 1376,
+    "height": 714,
+    "blurDataURL": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoMAAYAA4BaJZQCsAERHZshTIAA/cOs71cqNT7pdp+m/cmXtemMf7qelmymBAaIrwUJ2cmAAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/ELIT-MANZARA.jpg",
+    "alt": ""
+  },
+  "bulvar-loft": {
+    "src": "/images/bulvar-loft.webp",
+    "width": 1618,
+    "height": 1080,
+    "blurDataURL": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoMAAgAA4BaJbACdACvfsg8AAD+ANjIdnD0rroLp2niVUyUk7ZQOHQqBTCsrvlO6goGZLWcEI7TzuwXfBZF4DUAAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2023/12/BULVAR-LOFT.jpg",
+    "alt": ""
+  },
+  "a213-2": {
+    "src": "/images/a213-2.webp",
+    "width": 1181,
+    "height": 786,
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoMAAgAA4BaJQBOgBu2NE/mHAAA/tTGs9Ne6lQZmPhV2ZZ75zNKMdgIQTD7hL3vD+7vC2AJ5SCsnTHdDqoAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/05/a213-2-.jpg",
+    "alt": ""
+  },
+  "55-yalitimsiz-render-kopya": {
+    "src": "/images/55-yalitimsiz-render-kopya.webp",
+    "width": 2400,
+    "height": 2400,
+    "blurDataURL": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4WAoAAAAQAAAACwAACwAAQUxQSEUAAAABYBTbdpM/2cVAgHW10gUEB5A9SpoYBCGhd3iJhYiYADLOXR1VRCFHUk6NVgcqk7kFpeo3NF7X1YD5ugYHbGvNCAqPfgEAVlA4ID4AAAAQAgCdASoMAAwAA4BaJaQAD4VNXCqz+OsAAP6vdPG52Erp9hvS+6nTS0gpBnpXH4ParVVTR2etoY4pFgAAAA==",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/55-yalitimsiz-render-kopya.png",
+    "alt": ""
+  },
+  "c50-kopya-katalog": {
+    "src": "/images/c50-kopya-katalog.webp",
+    "width": 2231,
+    "height": 1860,
+    "blurDataURL": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4WAoAAAAQAAAACwAACQAAQUxQSF8AAAANcBvbtqpsXEJ3hxBCQgqxrqgAMpqQNtzdXb8Ajx4iYgIQZvTDqYzYqivmqhWRoslylv6BjDAV1HRI+wW2iGnJcSNo1ORisvkGNAYT8g2jBGjlh2ysvxUASdIq7lIZAABWUDggQAAAANABAJ0BKgwACgADgFolnAACUiFJJ2gAAPcq5d2YM2m7NRlDuY8VIH0gbvou2dk7WaVeW/tdbAlhEqnRz5hAAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/10/c50-kopya-katalog.png",
+    "alt": ""
+  },
+  "has-metal-siteler-vektor-kopya": {
+    "src": "/images/has-metal-siteler-vektor-kopya.webp",
+    "width": 2400,
+    "height": 1363,
+    "blurDataURL": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4WAoAAAAQAAAACwAABgAAQUxQSDoAAAABYBoAYJJJGpK4ZZXqb5A5k0hzuluizrcXImICgCumZRzqaMMY+xIlWn/GGFszAOqF6buKTMyyfWwuVlA4IFQAAAAwAgCdASoMAAcAA4BaJZACdAYs3wS2j/bUIADyTJ2wQnJtCfWxAfRsF+Z7DjSbguEWloLzOT1/us/T1PHMNIDj2UQF2rdRET8ZiW1SpNM5Ah4AAAA=",
+    "source": "https://hasmetal.com.tr/wp-content/uploads/2024/01/has-metal-siteler-vektor-kopya.png",
+    "alt": ""
+  }
+}

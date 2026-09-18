@@ -1,26 +1,210 @@
 @import "tailwindcss";
 
+@theme {
+  /* ---- paper ------------------------------------------------------- */
+  --color-paper: #f7f5f2;
+  --color-paper-2: #efede9;
+  --color-paper-3: #e6e3dd;
+
+  /* ---- ink --------------------------------------------------------- */
+  --color-ink: #111111;
+  --color-ink-2: #55534f;
+  --color-ink-3: #8a8681;
+
+  /* ---- accent, taken from the logo --------------------------------- */
+  --color-carmine: #a6192e;
+  --color-carmine-deep: #7d1222;
+
+  /* ---- the one dark surface, used for the project index ------------ */
+  --color-pitch: #141414;
+  --color-pitch-2: #1c1c1c;
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --shell-x: 1.25rem;
+  --rule: #d8d4ce;
+  --rule-strong: #bdb8b0;
+
+  /* Tone tokens, so a component can sit on paper or on the dark band without
+     knowing which. Anything reused across both grounds reads from these. */
+  --text-strong: var(--color-ink);
+  --text-muted: var(--color-ink-2);
+  --text-faint: var(--color-ink-3);
+  --border-strong: var(--color-ink);
+  --on-border-strong: var(--color-paper);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 640px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --shell-x: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --shell-x: 5vw;
+  }
+}
+@media (min-width: 1536px) {
+  :root {
+    --shell-x: 8vw;
   }
 }
 
+html {
+  background-color: var(--color-paper);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-carmine) 22%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-carmine);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer utilities {
+  .shell {
+    padding-inline: var(--shell-x);
+  }
+
+  .rule-t {
+    border-top: 1px solid var(--rule);
+  }
+  .rule-b {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* small uppercase label used for eyebrows, captions and data */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--label-color, var(--color-ink-3));
+  }
+
+  /* the editorial display face, always set tight and large */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  /* one dark band inside a paper-white site */
+  .on-dark {
+    --rule: #2f2f2f;
+    --rule-strong: #4a4a4a;
+    --label-color: #8a8681;
+    --text-strong: var(--color-paper);
+    --text-muted: #a5a19b;
+    --text-faint: #6f6b66;
+    --border-strong: var(--color-paper);
+    --on-border-strong: var(--color-ink);
+    background-color: var(--color-pitch);
+    color: var(--color-paper);
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.1;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+}
+
+/* Intro animations run from CSS, never JS: anything that plays on load has to
+   be painted before hydration or it holds back the largest contentful paint. */
+@keyframes line-rise {
+  from {
+    transform: translateY(110%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@layer utilities {
+  .anim-line-rise {
+    animation: line-rise 1.15s var(--ease-editorial) both;
+  }
+  .anim-rise-in {
+    animation: rise-in 0.9s var(--ease-editorial) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* a negative delay starts every animation already past its end, so
+       fill-mode leaves the element in its final state instead of its first */
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-delay: 0s !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }

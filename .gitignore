@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# content pipeline working files (regenerate with npm run content:refresh)
+/scripts/_scrape/
+/scripts/_text/
+/scripts/_shots/
